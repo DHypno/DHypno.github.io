@@ -21,7 +21,7 @@
 
   <h2>What we collect</h2>
   <ul>
-    <li><strong>Account basics:</strong> MELT is designed to be as private as possible, we don't even ask for your name! However, there are a few paths where data can travel, here's what is collected: IF you link a login, we store your email and provider (e.g., Google) to keep your data across devices. If you aren't logged in/anonymous, you will have an anonymous ID through Firebase that will be stored instead.</li>
+    <li><strong>Account basics:</strong> MELT is designed to be as private as possible - we don't even ask for your name! If you link a login, we store your email and provider (e.g., Google) to sync your data across devices. If you stay anonymous, you'll just have a Firebase anonymous ID instead.</li>
     <li><strong>Usage counters:</strong> Daily message count/limits per tier.</li>
     <li><strong>Conversation data (depends on tier):</strong>
       <ul>
@@ -35,7 +35,7 @@
 
   <h2>How we use data</h2>
   <ul>
-    <li>The only reason data is used is to deliver MELT’s features, show your threads (Mind), and maintain rolling context (Mirror).</li>
+    <li>To deliver MELT's features, show your threads (Mind), and maintain rolling context (Mirror).</li>
     <li>To enforce fair-use limits and prevent abuse.</li>
     <li>To improve quality and reliability (aggregated, non-identifying analytics).</li>
   </ul>
@@ -43,8 +43,8 @@
   <h2>How processing works</h2>
   <p>MELT uses third-party processors to provide functionality:</p>
   <ul>
-    <li><strong>Firebase (Google):</strong> authentication, Firestore database, and related infrastructure. This would consist of your user ID (Anonomous/Email) as well as any applicable metadata as outlined above.</li>
-    <li><strong>AI model provider(s):</strong> Your prompts and necessary context are sent to model APIs to generate replies. We do not allow providers to use your data to train on by default, and we select settings that disable training where available.</li>
+    <li><strong>Firebase (Google):</strong> authentication, Firestore database, and related infrastructure. This would consist of your user ID (Anonymous/Email) as well as any applicable metadata as outlined above.</li>
+    <li><strong>AI model provider(s):</strong> Your prompts and necessary context are sent to model APIs to generate replies. We configure AI providers to not use your conversations for training purposes.</li>
     <li><strong>Payments (when enabled):</strong> App store billing (Google Play / Apple App Store). We do not receive your full payment details.</li>
   </ul>
 
@@ -63,10 +63,10 @@
   </ul>
 
   <h2>Children</h2>
-  <p>MELT is for users 18+ (or the minimum age in your country). We do not knowingly collect data from users under that age.</p>
+  <p>MELT is for users 16+ (or the minimum age in your country). We do not knowingly collect data from users under that age.</p>
 
   <h2>Security</h2>
-  <p>We use modern security controls (Firebase security rules, HTTPS, access controls). No system can be 100% secure; report issues to <a href="mailto:support@bellstudios.io">support@bellstudios.io</a>.</p>
+  <p>We use modern security controls (Firebase security rules, HTTPS, access controls). No system can be 100% secure, but rest assured that this is an extreme point of emphasis here at Bell Studios; report issues to <a href="mailto:support@bellstudios.io">support@bellstudios.io</a>.</p>
 
   <h2>International transfers</h2>
   <p>Data may be processed in the United States or other regions where our processors host services.</p>
