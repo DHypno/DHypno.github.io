@@ -13,14 +13,48 @@
   <link rel="apple-touch-icon" href="/assets/meltCircleLogo.png" />
   <link rel="stylesheet" href="/assets/melt.css" />
 </head>
-<body>
-  <h1>Bell Studios</h1>
-  <p>Apps that help people think, feel, and build.</p>
+<body class="hero">
+  <!-- Sticky brand header / nav -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <div class="brand">
+        <img src="/assets/meltCircleLogo.png" alt="MELT logo" />
+        <span>MELT</span>
+      </div>
+      <div class="nav-links">
+        <a href="/index.html">Home</a>
+        <a href="/melt/about.html">About</a>
+        <a href="/melt/privacy.html">Privacy</a>
+        <a href="/melt/terms.html">Terms</a>
+        <a href="mailto:hello@bellstudios.io">Contact</a>
+      </div>
+    </div>
+  </nav>
 
-  <h2>Legal</h2>
-  <ul>
-    <li><a href="/melt/privacy.html">MELT — Privacy Policy</a></li>
-    <li><a href="/melt/terms.html">MELT — Terms of Service</a></li>
-  </ul>
+  <!-- Page content (your content unchanged, just wrapped) -->
+  <main class="container">
+    <div class="card prose">
+      <h1>Bell Studios</h1>
+      <p>Apps that help people think, feel, and build.</p>
+
+      <h2>Legal</h2>
+      <ul>
+        <li><a href="/melt/privacy.html">MELT — Privacy Policy</a></li>
+        <li><a href="/melt/terms.html">MELT — Terms of Service</a></li>
+      </ul>
+    </div>
+  </main>
+
+  <!-- Site footer -->
+  <footer class="footer">
+    <div class="container">
+      <small>
+        © <script>document.write(new Date().getFullYear())</script> Bell Studios — MELT ·
+        <a href="/melt/privacy.html">Privacy Policy</a> ·
+        <a href="/melt/terms.html">Terms of Service</a> ·
+        <a href="mailto:support@bellstudios.io">support@bellstudios.io</a>
+      </small>
+    </div>
+  </footer>
 </body>
 </html>
