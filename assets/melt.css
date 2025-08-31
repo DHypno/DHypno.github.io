@@ -91,3 +91,52 @@ code,kbd{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; backg
 .features{display:grid; gap:16px; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); margin-top:18px}
 .feature-card{background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:18px; box-shadow:var(--shadow)}
 .feature-card h3{margin-top:0}
+
+/* ==== LIGHT THEME OVERRIDES (MELT bright vibe) ==== */
+.light{
+  --bg:#FFF7F0;           /* warm off-white */
+  --surface:#FFFFFF;      /* cards */
+  --text:#1b1b1b;         /* dark ink */
+  --muted:#5f5a54;        /* soft gray-brown */
+  --border:#eadfd5;       /* warm hairline */
+  --accent:#E86E2C;       /* MELT orange */
+  --accent-2:#FFD8A8;     /* warm highlight */
+}
+
+/* Light nav (no dark glass bar) */
+.light .nav{
+  background:linear-gradient(180deg, rgba(255,255,255,.95), rgba(255,255,255,.86));
+  border-bottom:1px solid var(--border);
+}
+
+/* Bright peach hero background without seams */
+.hero-peach{
+  background:
+    var(--bg),
+    radial-gradient(1200px 520px at 20% -15%, rgba(232,110,44,.18), transparent 65%),
+    radial-gradient(1000px 520px at 110% 120%, rgba(255,216,168,.35), transparent 60%);
+  background-repeat:no-repeat;
+  background-attachment: fixed;
+}
+
+/* Stronger headings & readable body text */
+h1,h2,h3{line-height:1.2; margin:0 0 .5em; color:var(--text)}
+h1{font-size:42px; font-weight:800; letter-spacing:.2px}
+h2{font-size:26px; font-weight:700}
+h3{font-size:20px; font-weight:700}
+.prose p, .prose li{color:var(--text); opacity:1}
+
+/* Logo sizing (crisp, no weird crop) */
+.brand img{
+  width:40px; height:40px; display:block; object-fit:contain; border-radius:50%;
+}
+
+/* Buttons + home sections */
+.btn{display:inline-block;padding:12px 18px;border-radius:12px;border:1px solid var(--border);background:var(--accent);color:#241a0f;font-weight:700;text-decoration:none;box-shadow:0 10px 25px rgba(0,0,0,.12)}
+.btn:hover{filter:brightness(1.05)}
+.btn-ghost{background:transparent;color:var(--text);border:1px solid var(--border)}
+.display{font-size:54px;font-weight:900;margin:.2em 0 .3em;color:var(--text)}
+.lead{font-size:18px;max-width:60ch;opacity:.98}
+.features{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));margin-top:18px}
+.feature-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:18px;box-shadow:0 10px 25px rgba(0,0,0,.08)}
+.feature-card h3{margin-top:0}
