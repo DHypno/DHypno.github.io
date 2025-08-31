@@ -1,18 +1,19 @@
-/* ========== MELT Site Theme (Bright) ========== */
-/* Palette */
+/* ========= MELT Bright Theme (brand-true) ========= */
+/* Brand palette */
 :root{
-  --bg:#FFF6EF;           /* warm cream page */
-  --surface:#FFFFFF;      /* cards */
-  --ink:#1B1A17;          /* body text */
-  --muted:#5f5a54;        /* secondary text */
-  --border:#EADFD5;       /* warm hairline */
-  --accent:#E86E2C;       /* MELT orange */
-  --accent-2:#FFD8A8;     /* soft highlight */
-  --plum:#5A2E5B;         /* accent plum */
+  --orange:#E45E2B;
+  --cream:#F2D6A3;
+  --plum:#6D3E4E;
+
+  --bg:var(--cream);       /* page background */
+  --surface:#FFFFFF;       /* cards */
+  --ink:#1B1A17;           /* body text */
+  --muted:#5f5a54;         /* secondary */
+  --border:#eadfd5;        /* warm hairline */
 
   --radius:18px;
-  --shadow-card:0 12px 30px rgba(90,46,91,.12);   /* plum-tinted */
-  --shadow-soft:0 10px 24px rgba(0,0,0,.08);
+  --shadow-soft:0 10px 24px rgba(0,0,0,.10);
+  --shadow-card:0 14px 36px rgba(109,62,78,.14); /* plum tint */
 }
 
 /* Base */
@@ -23,10 +24,8 @@ body{
   font:16px/1.65 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,sans-serif;
   text-rendering:optimizeLegibility; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
 }
-a{color:var(--accent); text-decoration:none}
+a{color:var(--orange); text-decoration:none}
 a:hover{text-decoration:underline}
-
-/* Layout */
 .container{max-width:980px; margin:40px auto; padding:0 20px}
 
 /* Top nav (bright, glassy) */
@@ -36,35 +35,43 @@ a:hover{text-decoration:underline}
   border-bottom:1px solid var(--border);
   backdrop-filter:saturate(120%) blur(6px);
 }
-.nav-inner{
-  max-width:980px; margin:0 auto; padding:14px 20px;
-  display:flex; align-items:center; justify-content:space-between;
-}
-.brand{display:flex; align-items:center; gap:12px; font-weight:800; letter-spacing:.3px; color:var(--ink)}
+.nav-inner{max-width:980px; margin:0 auto; padding:14px 20px; display:flex; align-items:center; justify-content:space-between}
+.brand{display:flex; align-items:center; gap:12px; font-weight:900; letter-spacing:.3px; color:var(--ink)}
 .brand img{width:44px; height:44px; object-fit:contain; display:block; border-radius:50%}
 .nav-links{display:flex; gap:18px; align-items:center}
-.nav a{color:var(--ink); opacity:.85; font-weight:600}
+.nav a{color:var(--ink); opacity:.9; font-weight:700}
 .nav a:hover{opacity:1}
 
-/* Hero background — creamy with orange + plum accents, no seams */
-.hero-peach{
+/* Background — creamy 'pearl' with subtle orange/plum accents (no seams) */
+.bg-melt{
   background:
     var(--bg),
-    radial-gradient(1100px 560px at 18% -12%, rgba(232,110,44,.16), transparent 70%),
-    radial-gradient(1000px 540px at 110% 115%, rgba(90,46,91,.08), transparent 60%),
-    radial-gradient(1200px 600px at 50% 120%, rgba(255,216,168,.36), transparent 60%);
+    radial-gradient(1100px 560px at 18% -12%, rgba(228,94,43,.16), transparent 70%),
+    radial-gradient(1200px 600px at 110% 120%, rgba(109,62,78,.10), transparent 60%),
+    linear-gradient(180deg, rgba(255,255,255,.55), rgba(255,255,255,0) 45%),
+    radial-gradient(260px 260px at 85% 22%, rgba(228,94,43,.10), transparent 62%),
+    radial-gradient(220px 220px at 14% 72%, rgba(109,62,78,.08), transparent 60%);
   background-repeat:no-repeat;
   background-attachment:fixed;
 }
+/* If you ever want it flatter: use class="bg-flat" on <body> instead */
+.bg-flat{ background:var(--bg) }
 
-/* Cards */
+/* Cards (Claude-style top ribbon) */
 .card{
+  position:relative;
   background:var(--surface);
   border:1px solid var(--border);
   border-radius:var(--radius);
   padding:24px;
   box-shadow:var(--shadow-card);
   margin:18px 0;
+}
+.card::before{
+  content:"";
+  position:absolute; inset:0 0 auto 0; height:4px; border-radius:18px 18px 0 0;
+  background:linear-gradient(90deg, var(--orange), var(--plum), var(--orange));
+  opacity:.9;
 }
 
 /* Type scale */
@@ -76,24 +83,31 @@ p{margin:.7em 0}
 .prose p,.prose li{color:var(--ink); opacity:1}
 .prose li{margin:.3em 0}
 
-/* Code, hr */
-hr{border:0; border-top:1px solid var(--border); margin:24px 0}
-code,kbd{
-  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
-  background:#fff; border:1px solid var(--border);
-  padding:2px 6px; border-radius:8px; color:var(--plum)
+/* Optional title 'shine' (very subtle) */
+.title-shine{
+  background:linear-gradient(180deg, #2a2421 0%, #2a2421 60%, rgba(109,62,78,.85) 100%);
+  -webkit-background-clip:text; background-clip:text;
+  -webkit-text-fill-color:transparent;
 }
 
-/* Badges/Chips */
-.badge{
-  display:inline-block; padding:6px 10px; border-radius:999px; font-size:12px;
-  color:#241a0f; background:var(--accent-2); border:1px solid #e4b673
+/* Inline highlight (Claude idea, on-brand) */
+.hl{
+  background:linear-gradient(120deg, rgba(109,62,78,.14), rgba(242,214,163,.30));
+  padding:.15rem .35rem; border-radius:6px; font-weight:700; color:var(--plum)
+}
+
+/* Disclaimer / callout */
+.disclaimer{
+  font-style:italic; color:var(--plum);
+  background:rgba(109,62,78,.08);
+  padding:14px 16px; border-radius:12px;
+  border-left:4px solid var(--orange); margin-top:18px;
 }
 
 /* Buttons */
 .btn{
   display:inline-block; padding:12px 18px; border-radius:12px;
-  border:1px solid var(--border); background:var(--accent);
+  border:1px solid var(--border); background:var(--orange);
   color:#241a0f; font-weight:800; text-decoration:none;
   box-shadow:var(--shadow-soft);
 }
@@ -102,5 +116,16 @@ code,kbd{
   background:transparent; color:var(--ink);
   border:1px solid var(--border); font-weight:700
 }
-.btn-plum{
-  background:var(--plum); color:#fff; border:1px solid rgba(90,4
+.btn-plum{background:var(--plum); color:#fff; border:1px solid rgba(109,62,78,.35)}
+
+/* Home hero */
+.display{font-size:54px; font-weight:900; margin:.2em 0 .3em}
+.lead{font-size:18px; max-width:65ch; opacity:.98}
+
+/* Feature grid */
+.features{display:grid; gap:16px; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); margin-top:18px}
+.feature-card{background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:18px; box-shadow:var(--shadow-soft)}
+.feature-card h3{margin-top:0}
+
+/* Footer + bottom ribbon */
+.footer{position:relative; border-top:1px
