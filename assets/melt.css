@@ -31,22 +31,33 @@ a:hover{text-decoration:underline}
 .brand{
   display:flex; align-items:center; gap:12px; font-weight:700; letter-spacing:.3px
 }
-.brand img{width:28px; height:28px; border-radius:50%}
+.brand img{
+  width:36px; height:36px;
+  border-radius:50%;
+  object-fit:contain; display:block;
+}
 .nav a{color:var(--text); opacity:.9}
 .nav a:hover{opacity:1}
 .nav-links{display:flex; gap:16px; align-items:center}
 .container{max-width:820px; margin:40px auto; padding:0 20px}
+/* Body bg with subtle, seamless accents */
 .hero{
-  background: radial-gradient(1200px 500px at 20% -10%, rgba(255,122,24,.12), transparent 70%),
-              radial-gradient(800px 400px at 120% 0%, rgba(255,207,138,.10), transparent 60%);
+  /* include the base color so we never “fall through” to white */
+  background:
+    var(--bg),
+    radial-gradient(900px 420px at 15% -10%, rgba(255,122,24,.10), transparent 70%),
+    radial-gradient(900px 480px at 85% 110%, rgba(255,207,138,.08), transparent 60%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 .card{
   background:var(--surface); border:1px solid var(--border);
   border-radius:var(--radius); padding:22px; box-shadow:var(--shadow); margin:18px 0
 }
-h1,h2,h3{line-height:1.25; margin:0 0 .4em}
-h1{font-size:34px}
-h2{font-size:24px; margin-top:1.2em}
+h1,h2,h3{line-height:1.2; margin:0 0 .4em; color:var(--text)}
+h1{font-size:42px; font-weight:800; letter-spacing:.2px}
+h2{font-size:26px; font-weight:700}
+h3{font-size:20px; font-weight:700}
 p{margin:.7em 0}
 .badge{
   display:inline-block; padding:6px 10px; border-radius:999px; font-size:12px;
@@ -59,3 +70,24 @@ p{margin:.7em 0}
 .prose li{margin:.3em 0}
 hr{border:0; border-top:1px solid var(--border); margin:24px 0}
 code,kbd{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; background:#111; border:1px solid var(--border); padding:2px 6px; border-radius:8px}
+/* Buttons */
+.btn{
+  display:inline-block; padding:12px 18px; border-radius:12px;
+  border:1px solid var(--border); background:var(--accent);
+  color:#241a0f; font-weight:700; text-decoration:none;
+  box-shadow:var(--shadow);
+}
+.btn:hover{filter:brightness(1.05)}
+.btn-ghost{
+  background:transparent; color:var(--text);
+  border:1px solid var(--border)
+}
+
+/* Home hero */
+.display{font-size:54px; font-weight:900; margin:.2em 0 .3em}
+.lead{font-size:18px; opacity:.95; max-width:60ch}
+
+/* Features grid */
+.features{display:grid; gap:16px; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); margin-top:18px}
+.feature-card{background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:18px; box-shadow:var(--shadow)}
+.feature-card h3{margin-top:0}
