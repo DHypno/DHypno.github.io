@@ -5,22 +5,146 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
 
   <title>Bell Studios</title>
-  <meta name="description" content="Bell Studios builds tools that help people think, feel, and build. Home of MELT and future apps." />
+  <meta name="description" content="Bell Studios builds focused, human tools. Explore MELT and PUZL." />
 
   <meta property="og:title" content="Bell Studios" />
-  <meta property="og:description" content="Tools that help people think, feel, and build. First up: MELT." />
+  <meta property="og:description" content="Explore MELT and PUZL — focused tools for mind and creativity." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="/assets/bellstudiosNoBG.png" />
 
   <link rel="icon" href="/assets/bellstudiosNoBG.png" />
   <link rel="apple-touch-icon" href="/assets/bellstudiosNoBG.png" />
 
-  <!-- Reuse your existing styling for now -->
+  <!-- Keep your existing base styles -->
   <link rel="stylesheet" href="/assets/melt.css" />
+
+  <!-- App gallery-specific styling -->
+  <style>
+    /* Make the overall page less "MELT themed" */
+    body.bg-melt { background: #fbfaf8; }
+
+    /* Bigger brand/logo in nav */
+    .brand img {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      object-fit: contain;
+    }
+    .brand span {
+      font-weight: 800;
+      letter-spacing: .2px;
+    }
+
+    /* App gallery */
+    .studio-hero {
+      padding-top: 14px;
+      margin-bottom: 18px;
+    }
+    .studio-kicker {
+      font-size: 13px;
+      opacity: .75;
+      margin: 0 0 6px 0;
+    }
+    .studio-title {
+      font-size: clamp(26px, 3.5vw, 44px);
+      line-height: 1.05;
+      margin: 0 0 10px 0;
+      font-weight: 900;
+      letter-spacing: -0.6px;
+    }
+    .studio-sub {
+      margin: 0;
+      max-width: 720px;
+      opacity: .9;
+    }
+
+    .app-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 16px;
+      margin-top: 18px;
+    }
+    .app-card {
+      grid-column: span 6;
+      border-radius: 18px;
+      padding: 18px;
+      border: 1px solid rgba(0,0,0,.06);
+      box-shadow: 0 12px 30px rgba(0,0,0,.06);
+      overflow: hidden;
+      position: relative;
+      min-height: 240px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    /* Make cards stack on mobile */
+    @media (max-width: 860px) {
+      .app-card { grid-column: span 12; }
+    }
+
+    .app-top {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+    .app-logo {
+      width: 64px;
+      height: 64px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      background: rgba(255,255,255,.55);
+      border: 1px solid rgba(255,255,255,.35);
+    }
+    .app-logo img {
+      width: 52px;
+      height: 52px;
+      object-fit: contain;
+      border-radius: 12px;
+    }
+
+    .app-name {
+      margin: 0;
+      font-size: 22px;
+      font-weight: 900;
+      letter-spacing: -0.2px;
+    }
+    .app-tagline {
+      margin: 4px 0 0 0;
+      opacity: .9;
+      max-width: 520px;
+    }
+
+    .app-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 14px;
+    }
+
+    /* MELT theme */
+    .app-melt {
+      background: linear-gradient(135deg, rgba(255,168,89,.20), rgba(251,250,248,1));
+    }
+    .app-melt .app-name { color: #1a1d3a; }
+    .app-melt .btn { background: #d86a2a; } /* warm orange */
+    .app-melt .btn:hover { filter: brightness(0.96); }
+
+    /* PUZL theme (lavender + midnight) */
+    .app-puzl {
+      background: linear-gradient(135deg, rgba(166,148,247,.22), rgba(26,29,58,.04));
+    }
+    .app-puzl .app-name { color: #1a1d3a; }
+
+    /* Footer tweaks */
+    .footer small { opacity: .75; }
+  </style>
 </head>
 
 <body class="bg-melt">
-  <!-- Sticky brand header / nav -->
+  <!-- Bell Studios nav only -->
   <nav class="nav">
     <div class="nav-inner">
       <div class="brand">
@@ -30,81 +154,93 @@
 
       <div class="nav-links">
         <a href="/">Home</a>
-        <a href="/melt">MELT</a>
-        <a href="/melt/privacy.html">Privacy</a>
-        <a href="/melt/terms.html">Terms</a>
+        <a href="/about.html">About</a>
         <a href="mailto:hello@bellstudios.io">Contact</a>
       </div>
     </div>
   </nav>
 
-  <!-- HERO -->
   <main class="container">
-    <div class="card">
-      <h1 class="display">Bell Studios</h1>
-      <p class="lead">
-        We build tools that help people <strong>think</strong>, <strong>feel</strong>, and <strong>build</strong>.
-        First up: <em>MELT</em> — an emotion-first companion that translates tangled experience into clear language and patterns.
+    <!-- Minimal studio intro (apps are the focus) -->
+    <section class="studio-hero">
+      <p class="studio-kicker">Focused, human tools.</p>
+      <h1 class="studio-title">Explore the apps.</h1>
+      <p class="studio-sub">
+        Bell Studios ships products with distinct identities. Pick an app below to learn more.
       </p>
+    </section>
 
-      <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap">
-        <a class="btn" href="/melt">Explore MELT</a>
-        <a class="btn btn-ghost" href="/melt/privacy.html">MELT Privacy</a>
-        <a class="btn btn-ghost" href="/melt/terms.html">MELT Terms</a>
+    <!-- App gallery -->
+    <section class="app-grid">
+      <!-- MELT -->
+      <article class="app-card app-melt">
+        <div>
+          <div class="app-top">
+            <div class="app-logo">
+              <img src="/assets/meltCircleLogo512.png" alt="MELT logo" />
+            </div>
+            <div>
+              <h2 class="app-name">MELT</h2>
+              <p class="app-tagline">Emotion-first companion that translates tangled experience into clear language and patterns.</p>
+            </div>
+          </div>
+
+          <div class="card" style="padding:14px; margin-top:12px;">
+            <strong>Built for:</strong> overthinkers, skeptics, the emotionally orphaned — anyone who wants clarity without therapy-speak.
+          </div>
+        </div>
+
+        <div class="app-actions">
+          <a class="btn" href="/melt/index.html">Open MELT</a>
+          <a class="btn btn-ghost" href="/melt/privacy.html">Privacy</a>
+          <a class="btn btn-ghost" href="/melt/terms.html">Terms</a>
+        </div>
+      </article>
+
+      <!-- PUZL -->
+<article class="app-card app-puzl">
+  <div>
+    <div class="app-top">
+      <div class="app-logo">
+        <img src="/assets/puzlIcon.jpeg" alt="PUZL logo" />
+      </div>
+      <div>
+        <h2 class="app-name">PUZL</h2>
+        <p class="app-tagline">
+          Generative puzzles — including AI-created puzzles from any image you can imagine.
+        </p>
       </div>
     </div>
 
-    <!-- 3-up: company-level pillars (still MELT-compatible copy) -->
-    <section class="features">
-      <div class="feature-card">
-        <h3>Emotion-first</h3>
-        <p>MELT adapts depth to your tone and context, mirroring rather than lecturing.</p>
-      </div>
-      <div class="feature-card">
-        <h3>Private by design</h3>
-        <p>Free is stateless. Mirror stores meta only. Mind keeps full threads. Delete anytime in-app.</p>
-      </div>
-      <div class="feature-card">
-        <h3>Simple tiers</h3>
-        <p>Start free. Upgrade when you want threads saved and insights to evolve.</p>
-      </div>
-    </section>
+    <div class="card" style="padding:14px; margin-top:12px;">
+      <strong>Coming soon:</strong> upload photos, generate AI art, and instantly turn it into a clean, satisfying puzzle.
+    </div>
+  </div>
 
-    <!-- Optional: “Apps” section stub so PUZL can slot in later -->
-    <section class="features" style="margin-top: 18px;">
-      <div class="feature-card">
-        <h3>MELT</h3>
-        <p>Reflective companion for emotional clarity. Tone-aware, private, and built for real life.</p>
-        <div style="margin-top:10px;">
-          <a class="btn btn-ghost" href="/melt">Open MELT page →</a>
-        </div>
-      </div>
-
-      <div class="feature-card">
-        <h3>PUZL</h3>
-        <p>Generative puzzles, including AI puzzle creation. (Page coming soon.)</p>
-        <div style="margin-top:10px;">
-          <a class="btn btn-ghost" href="/puzl">Open PUZL page →</a>
-        </div>
-      </div>
-
-      <div class="feature-card">
-        <h3>More soon</h3>
-        <p>Bell Studios is a home for focused, human tools — not noise.</p>
-      </div>
+  <div class="app-actions">
+    <a class="btn btn-ghost" href="/puzl/index.html">Open PUZL</a>
+  </div>
+</article>
     </section>
   </main>
 
-  <!-- Site footer -->
   <footer class="footer">
     <div class="container">
       <small>
         © <script>document.write(new Date().getFullYear())</script> Bell Studios ·
-        <a href="/melt/privacy.html">MELT Privacy</a> ·
-        <a href="/melt/terms.html">MELT Terms</a> ·
         <a href="mailto:support@bellstudios.io">support@bellstudios.io</a>
       </small>
     </div>
   </footer>
+
+  <script>
+    // Hide PUZL fallback text if the image loads
+    (function () {
+      var img = document.querySelector(".app-puzl .app-logo img");
+      var fb = document.getElementById("puzl-fallback");
+      if (!img || !fb) return;
+      img.addEventListener("load", function () { fb.style.display = "none"; });
+    })();
+  </script>
 </body>
 </html>
