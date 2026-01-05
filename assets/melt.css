@@ -35,12 +35,83 @@ a:hover{text-decoration:underline}
   border-bottom:1px solid var(--border);
   backdrop-filter:saturate(120%) blur(6px);
 }
-.nav-inner{max-width:980px; margin:0 auto; padding:14px 20px; display:flex; align-items:center; justify-content:space-between}
-.brand{display:flex; align-items:center; gap:12px; font-weight:900; letter-spacing:.3px; color:var(--ink)}
-.brand img{width:44px; height:44px; object-fit:contain; display:block; border-radius:50%}
+.nav-inner{
+  max-width:980px; margin:0 auto; padding:14px 20px;
+  display:flex; align-items:center; justify-content:space-between
+}
+
+/* Brand left (logo only) */
+.brand{
+  display:flex; align-items:center; gap:12px;
+  font-weight:900; letter-spacing:.3px; color:var(--ink);
+}
+.brand a{display:inline-flex; align-items:center}
+.brand img{
+  width:48px; height:48px;
+  object-fit:contain; display:block;
+  border-radius:50%;
+}
+/* If any page still includes <span> in brand, hide it (logo-only template) */
+.brand span{display:none}
+
+/* Right-side nav links */
 .nav-links{display:flex; gap:18px; align-items:center}
-.nav a{color:var(--ink); opacity:.9; font-weight:700}
-.nav a:hover{opacity:1}
+.nav a{color:var(--ink); opacity:.9; font-weight:800}
+.nav a:hover{opacity:1; text-decoration:none}
+
+/* Dropdown: Apps */
+.nav-dropdown{position:relative; display:inline-block}
+.nav-dropbtn{
+  background:transparent;
+  border:1px solid transparent;
+  font:inherit;
+  color:var(--ink);
+  opacity:.9;
+  font-weight:800;
+  cursor:pointer;
+  padding:8px 10px;
+  border-radius:12px;
+}
+.nav-dropbtn:hover{
+  opacity:1;
+  background:rgba(228,94,43,.08);
+  border-color:rgba(228,94,43,.18);
+}
+.nav-dropmenu{
+  display:none;
+  position:absolute;
+  right:0;
+  top:calc(100% + 10px);
+  min-width:180px;
+  background:rgba(255,255,255,.98);
+  border:1px solid rgba(0,0,0,0.08);
+  border-radius:14px;
+  box-shadow:0 18px 40px rgba(0,0,0,.14);
+  padding:8px;
+  z-index:60;
+}
+.nav-dropmenu a{
+  display:block;
+  padding:10px 10px;
+  border-radius:12px;
+  text-decoration:none;
+  font-weight:800;
+  color:var(--ink);
+  opacity:.95;
+}
+.nav-dropmenu a:hover{
+  background:rgba(228,94,43,.10);
+  opacity:1;
+}
+.nav-dropdown:hover .nav-dropmenu{display:block}
+
+/* Responsive nav tightening */
+@media (max-width:720px){
+  .nav-inner{padding:12px 14px}
+  .container{margin:28px auto}
+  .nav-links{gap:10px}
+  .nav a{font-weight:800}
+}
 
 /* Background — creamy 'pearl' with subtle orange/plum accents (no seams) */
 .bg-melt{
@@ -57,7 +128,7 @@ a:hover{text-decoration:underline}
 /* If you ever want it flatter: use class="bg-flat" on <body> instead */
 .bg-flat{ background:var(--bg) }
 
-/* Cards (Claude-style top ribbon) */
+/* Cards (top ribbon) */
 .card{
   position:relative;
   background:var(--surface);
@@ -69,63 +140,110 @@ a:hover{text-decoration:underline}
 }
 .card::before{
   content:"";
-  position:absolute; inset:0 0 auto 0; height:4px; border-radius:18px 18px 0 0;
+  position:absolute; inset:0 0 auto 0; height:4px;
+  border-radius:18px 18px 0 0;
   background:linear-gradient(90deg, var(--orange), var(--plum), var(--orange));
   opacity:.9;
 }
 
 /* Type scale */
-h1,h2,h3{line-height:1.2; margin:0 0 .5em; color:var(--ink)}
-h1{font-size:42px; font-weight:900; letter-spacing:.2px}
-h2{font-size:26px; font-weight:800}
-h3{font-size:20px; font-weight:700}
-p{margin:.7em 0}
-.prose p,.prose li{color:var(--ink); opacity:1}
-.prose li{margin:.3em 0}
+h1,h2,h3{line-height:1.15; margin:0 0 .55em; color:var(--ink)}
+h1{font-size:44px; font-weight:950; letter-spacing:-.2px}
+h2{font-size:26px; font-weight:850}
+h3{font-size:20px; font-weight:800}
+p{margin:.75em 0}
+.prose p,.prose li{color:var(--ink)}
+.prose li{margin:.35em 0}
 
-/* Optional title 'shine' (very subtle) */
+/* Optional title 'shine' (subtle) */
 .title-shine{
-  background:linear-gradient(180deg, #2a2421 0%, #2a2421 60%, rgba(109,62,78,.85) 100%);
+  background:linear-gradient(180deg, #2a2421 0%, #2a2421 62%, rgba(109,62,78,.86) 100%);
   -webkit-background-clip:text; background-clip:text;
   -webkit-text-fill-color:transparent;
 }
 
-/* Inline highlight (Claude idea, on-brand) */
+/* Inline highlight (fixed: no weird gray blocks; now warm + consistent) */
 .hl{
-  background:linear-gradient(120deg, rgba(109,62,78,.14), rgba(242,214,163,.30));
-  padding:.15rem .35rem; border-radius:6px; font-weight:700; color:var(--plum)
+  background:rgba(228,94,43,.14);
+  color:#3b1d0d;
+  padding:.12rem .35rem;
+  border-radius:8px;
+  font-weight:850;
 }
 
-/* Disclaimer / callout */
+/* Disclaimer / callout (warmer, more symmetrical with MELT palette) */
 .disclaimer{
-  font-style:italic; color:var(--plum);
-  background:rgba(109,62,78,.08);
-  padding:14px 16px; border-radius:12px;
-  border-left:4px solid var(--orange); margin-top:18px;
+  font-style:italic;
+  color:#3b1d0d;
+  background:rgba(228,94,43,.10);
+  padding:14px 16px;
+  border-radius:14px;
+  border-left:4px solid rgba(228,94,43,.70);
+  margin-top:18px;
 }
 
 /* Buttons */
 .btn{
-  display:inline-block; padding:12px 18px; border-radius:12px;
-  border:1px solid var(--border); background:var(--orange);
-  color:#241a0f; font-weight:800; text-decoration:none;
+  display:inline-block;
+  padding:12px 18px;
+  border-radius:12px;
+  border:1px solid rgba(0,0,0,.04);
+  background:var(--orange);
+  color:#241a0f;
+  font-weight:900;
+  text-decoration:none;
   box-shadow:var(--shadow-soft);
 }
-.btn:hover{filter:brightness(1.05)}
+.btn:hover{filter:brightness(1.05); text-decoration:none}
 .btn-ghost{
-  background:transparent; color:var(--ink);
-  border:1px solid var(--border); font-weight:700
+  background:transparent;
+  color:var(--ink);
+  border:1px solid var(--border);
+  font-weight:850;
+  box-shadow:none;
 }
-.btn-plum{background:var(--plum); color:#fff; border:1px solid rgba(109,62,78,.35)}
+.btn-ghost:hover{
+  background:rgba(228,94,43,.08);
+  border-color:rgba(228,94,43,.20);
+}
+.btn-plum{
+  background:var(--plum);
+  color:#fff;
+  border:1px solid rgba(109,62,78,.35);
+}
 
-/* Home hero */
-.display{font-size:54px; font-weight:900; margin:.2em 0 .3em}
+/* Home hero (if used) */
+.display{font-size:54px; font-weight:950; margin:.2em 0 .3em; letter-spacing:-.6px}
 .lead{font-size:18px; max-width:65ch; opacity:.98}
 
 /* Feature grid */
-.features{display:grid; gap:16px; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); margin-top:18px}
-.feature-card{background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:18px; box-shadow:var(--shadow-soft)}
+.features{
+  display:grid;
+  gap:16px;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  margin-top:18px
+}
+.feature-card{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:18px;
+  box-shadow:var(--shadow-soft)
+}
 .feature-card h3{margin-top:0}
 
-/* Footer + bottom ribbon */
-.footer{position:relative; border-top:1px
+/* Footer */
+.footer{
+  position:relative;
+  border-top:1px solid var(--border);
+  margin-top:34px;
+  padding:18px 0;
+  background:linear-gradient(180deg, rgba(255,255,255,.30), rgba(255,255,255,.12));
+}
+.footer .container{margin:0 auto}
+.footer small{
+  color:var(--ink);
+  opacity:.75;
+}
+.footer a{color:var(--orange)}
+.footer a:hover{text-decoration:underline}
