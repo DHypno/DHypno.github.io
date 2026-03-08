@@ -4,19 +4,50 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>PUZL</title>
-
   <meta name="description" content="PUZL — generative puzzles, including AI-created puzzles from any image you can imagine." />
   <meta property="og:title" content="PUZL" />
   <meta property="og:description" content="Generative puzzles — including AI-created puzzles from any image you can imagine." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="/assets/puzlIcon.jpeg" />
-
   <link rel="icon" href="/assets/puzlIcon.jpeg" />
   <link rel="apple-touch-icon" href="/assets/puzlIcon.jpeg" />
-
   <link rel="stylesheet" href="/assets/puzl.css" />
-</head>
 
+  <style>
+    /* Banner */
+    .puzl-banner {
+      width: 100%;
+      max-height: 260px;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 14px;
+      display: block;
+      margin-bottom: 24px;
+    }
+
+    /* Store badges row */
+    .store-badges {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      align-items: center;
+      margin: 20px 0 8px 0;
+    }
+
+    .store-badge img {
+      height: 52px;
+      width: auto;
+      display: block;
+      border-radius: 8px;
+      transition: opacity 0.15s ease, transform 0.15s ease;
+    }
+
+    .store-badge:hover img {
+      opacity: 0.85;
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
 <body class="bg-app">
   <nav class="nav">
     <div class="nav-inner">
@@ -25,10 +56,8 @@
           <img src="/assets/puzlIcon.jpeg" alt="PUZL logo" />
         </a>
       </div>
-
       <div class="nav-links">
         <a href="/">Bell Studios</a>
-
         <div class="nav-dropdown">
           <button class="nav-dropbtn" type="button" aria-haspopup="true" aria-expanded="false">
             Apps ▾
@@ -43,23 +72,38 @@
   </nav>
 
   <main class="container">
-    <h1 class="title-shine">PUZL</h1>
+
+    <!-- Banner replaces the big PUZL title -->
+    <img
+      src="/assets/puzlBanner2.png"
+      alt="PUZL — AI-powered jigsaw puzzles"
+      class="puzl-banner"
+    />
 
     <div class="card prose">
       <p><span class="hl">PUZL</span> is a modern puzzle app built for clean, satisfying assembly — with a twist.</p>
       <p>Pick from curated puzzles, upload your own images, or generate fresh AI art and instantly turn it into a puzzle.</p>
       <p>Designed to feel premium: smooth motion, crisp piece shapes, and puzzle sessions that actually feel relaxing.</p>
 
-      <div class="actions" style="margin-top: 20px;">
-  <a class="btn" href="https://apps.apple.com/us/app/puzl-turn-photos-to-puzzles/id6758163921" target="_blank" rel="noopener">
-    Download on the App Store
-  </a>
-  <a class="btn" href="https://play.google.com/store/apps/details?id=io.bellstudios.puzl" target="_blank" rel="noopener">
-    Get it on Google Play
-  </a>
-</div>
-<div class="actions" style="margin-top: 8px;">
-  <a class="btn btn-ghost" href="mailto:support@bellstudios.io?subject=PUZL%20support">Contact support</a>
+      <!-- Official store badges -->
+      <div class="store-badges">
+        <a class="store-badge" href="https://apps.apple.com/us/app/puzl-turn-photos-to-puzzles/id6758163921" target="_blank" rel="noopener" aria-label="Download on the App Store">
+          <img
+            src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
+            alt="Download on the App Store"
+          />
+        </a>
+        <a class="store-badge" href="https://play.google.com/store/apps/details?id=io.bellstudios.puzl" target="_blank" rel="noopener" aria-label="Get it on Google Play">
+          <img
+            src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"
+            alt="Get it on Google Play"
+            style="height: 52px; margin-left: -6px;"
+          />
+        </a>
+      </div>
+
+      <div class="actions" style="margin-top: 8px;">
+        <a class="btn btn-ghost" href="mailto:support@bellstudios.io?subject=PUZL%20support">Contact support</a>
         <a class="btn btn-ghost" href="/puzl/privacy.html">Privacy Policy</a>
         <a class="btn btn-ghost" href="/puzl/terms.html">Terms of Service</a>
       </div>
