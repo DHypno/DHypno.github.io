@@ -15,36 +15,52 @@
 
   <style>
     /* Banner */
+    .puzl-banner-wrap {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 24px;
+    }
     .puzl-banner {
       width: 100%;
-      max-height: 260px;
-      object-fit: cover;
-      object-position: center;
+      max-width: 380px;
+      height: auto;
       border-radius: 14px;
       display: block;
-      margin-bottom: 24px;
     }
 
     /* Store badges row */
     .store-badges {
       display: flex;
-      gap: 14px;
+      gap: 12px;
       flex-wrap: wrap;
       align-items: center;
       margin: 20px 0 8px 0;
     }
 
-    .store-badge img {
-      height: 52px;
-      width: auto;
-      display: block;
-      border-radius: 8px;
+    .store-badge {
+      display: flex;
+      align-items: center;
+      height: 44px;
       transition: opacity 0.15s ease, transform 0.15s ease;
     }
-
-    .store-badge:hover img {
+    .store-badge:hover {
       opacity: 0.85;
       transform: translateY(-2px);
+    }
+
+    /* Apple badge — no padding, just size it */
+    .store-badge.apple img {
+      height: 44px;
+      width: auto;
+      display: block;
+    }
+
+    /* Google badge — has ~18% padding baked in, so render larger to match visual height */
+    .store-badge.google img {
+      height: 66px;
+      width: auto;
+      display: block;
+      margin: 0 -8px;
     }
   </style>
 </head>
@@ -73,12 +89,14 @@
 
   <main class="container">
 
-    <!-- Banner replaces the big PUZL title -->
-    <img
-      src="/assets/puzlBanner2.png"
-      alt="PUZL — AI-powered jigsaw puzzles"
-      class="puzl-banner"
-    />
+    <!-- Banner -->
+    <div class="puzl-banner-wrap">
+      <img
+        src="/assets/puzlBanner2.png"
+        alt="PUZL — AI-powered jigsaw puzzles"
+        class="puzl-banner"
+      />
+    </div>
 
     <div class="card prose">
       <p><span class="hl">PUZL</span> is a modern puzzle app built for clean, satisfying assembly — with a twist.</p>
@@ -87,17 +105,16 @@
 
       <!-- Official store badges -->
       <div class="store-badges">
-        <a class="store-badge" href="https://apps.apple.com/us/app/puzl-turn-photos-to-puzzles/id6758163921" target="_blank" rel="noopener" aria-label="Download on the App Store">
+        <a class="store-badge apple" href="https://apps.apple.com/us/app/puzl-turn-photos-to-puzzles/id6758163921" target="_blank" rel="noopener" aria-label="Download on the App Store">
           <img
             src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
             alt="Download on the App Store"
           />
         </a>
-        <a class="store-badge" href="https://play.google.com/store/apps/details?id=io.bellstudios.puzl" target="_blank" rel="noopener" aria-label="Get it on Google Play">
+        <a class="store-badge google" href="https://play.google.com/store/apps/details?id=io.bellstudios.puzl" target="_blank" rel="noopener" aria-label="Get it on Google Play">
           <img
             src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"
             alt="Get it on Google Play"
-            style="height: 52px; margin-left: -6px;"
           />
         </a>
       </div>
