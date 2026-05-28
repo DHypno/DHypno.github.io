@@ -55,7 +55,7 @@
       max-width: 1140px;
       margin: 0 auto;
       padding: 0 24px;
-      height: 88px; /* Increased from 72px to give the larger logo breathing room */
+      height: 88px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -63,19 +63,19 @@
     .brand {
       display: flex;
       align-items: center;
-      gap: 16px; /* Slightly wider gap for better balance with a larger logo */
+      gap: 16px;
       text-decoration: none;
       color: inherit;
     }
     .brand img {
-      width: 54px; /* Mega tiny no more! Bumped up from 32px */
+      width: 54px;
       height: 54px;
       object-fit: contain;
     }
     .brand span {
       font-family: 'Unbounded', sans-serif;
-      font-weight: 800; /* Made it a bit bolder to match the new presence */
-      font-size: 18px;  /* Bumped up from 14px to balance the image scale */
+      font-weight: 800;
+      font-size: 18px;
       letter-spacing: -0.4px;
     }
     .nav-links {
@@ -87,11 +87,9 @@
       font-weight: 500;
       color: var(--clr-muted);
       text-decoration: none;
-      transition: color .2s, transform .2s;
+      transition: color .2s;
     }
-    .nav-links a:hover { 
-      color: var(--clr-ink); 
-    }
+    .nav-links a:hover { color: var(--clr-ink); }
 
     /* ── LAYOUT ── */
     .container {
@@ -112,7 +110,6 @@
       text-transform: uppercase;
       color: var(--clr-muted);
       margin-bottom: 16px;
-      opacity: 0.8;
     }
     .studio-title {
       font-family: 'Unbounded', sans-serif;
@@ -131,10 +128,9 @@
       color: var(--clr-muted);
       max-width: 580px;
       line-height: 1.6;
-      font-weight: 400;
     }
 
-    /* ── ASYMMETRICAL GRID ── */
+    /* ── GRID ── */
     .app-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -142,40 +138,8 @@
       padding-bottom: 120px;
     }
 
-    /* Layout tuning: Stack apps left, expand book on the right */
-    .app-card--melt { grid-column: span 1; }
-    .app-card--puzl { grid-column: span 1; }
-    .app-card--book { grid-column: span 1; }
-
-    /* Responsive adjustments for premium desktop layout */
-    @media (min-width: 960px) {
-      .app-grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
-      .app-card--book {
-        grid-column: span 2; /* Gives book preview elements breathing room */
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 24px;
-      }
-      .app-card--book > div:first-child {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-      }
-      .app-card--book .app-actions {
-        grid-column: span 2;
-        margin-top: auto;
-      }
-    }
-
-    @media (max-width: 959px) and (min-width: 680px) {
-      .app-grid { grid-template-columns: repeat(2, 1fr); }
-      .app-card--book { grid-column: span 2; }
-    }
-    @media (max-width: 679px) {
+    @media (max-width: 860px) {
       .app-grid { grid-template-columns: 1fr; }
-      .app-card--melt, .app-card--puzl, .app-card--book { grid-column: span 1; }
     }
 
     /* ── CARD STRUCTURAL OVERHAUL ── */
@@ -190,7 +154,6 @@
       transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    /* Premium Custom Gradients without borders suffocating them */
     .app-card--melt { background: linear-gradient(180deg, rgba(216, 106, 42, 0.07) 0%, rgba(255, 255, 255, 0) 100%), #ffffff; }
     .app-card--puzl { background: linear-gradient(180deg, rgba(108, 79, 216, 0.07) 0%, rgba(255, 255, 255, 0) 100%), #ffffff; }
     .app-card--book { background: linear-gradient(180deg, rgba(26, 58, 92, 0.06) 0%, rgba(255, 255, 255, 0) 100%), #ffffff; }
@@ -200,7 +163,7 @@
       box-shadow: 0 20px 40px rgba(15, 15, 16, 0.05);
     }
 
-    /* ── LOGOS (Dropped backgrounds & frames) ── */
+    /* ── LOGOS ── */
     .app-top {
       display: flex;
       align-items: center;
@@ -214,14 +177,15 @@
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
-      background: transparent; /* Removed white background frame */
-      border: none; /* Removed harsh border wrapper */
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
     }
     .app-logo-wrap img {
       width: 100%;
       height: 100%;
       object-fit: contain;
-      padding: 0; /* Let image utilize full bounds */
+      padding: 0; 
       filter: drop-shadow(0 4px 8px rgba(0,0,0,0.06));
     }
 
@@ -263,6 +227,7 @@
       padding: 5px 12px;
       border-radius: 20px;
       letter-spacing: .1px;
+      white-space: nowrap;
     }
     .app-card--melt .pill  { background: rgba(216,106,42,.08); color: #b85520; }
     .app-card--puzl .pill  { background: rgba(108,79,216,.08); color: var(--clr-puzl); }
@@ -285,52 +250,38 @@
       text-transform: uppercase;
     }
 
-    /* Right column box context for preview-strip on desktop layout */
-    .book-visuals {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
     /* preview strip */
     .preview-strip {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 8px;
-      margin-bottom: 20px;
+      display: flex;
+      gap: 7px;
+      overflow-x: auto;
+      margin-bottom: 18px;
+      padding-bottom: 4px;
+      scrollbar-width: none;
     }
-    @media(max-width: 959px){
-      .preview-strip {
-        display: flex;
-        overflow-x: auto;
-        scrollbar-width: none;
-      }
-      .preview-strip::-webkit-scrollbar { display: none; }
-    }
+    .preview-strip::-webkit-scrollbar { display: none; }
     .preview-strip img {
-      width: 100%;
-      aspect-ratio: 3 / 4;
+      width: 72px;
+      height: 94px;
       object-fit: cover;
       object-position: top;
       border-radius: 8px;
       border: 1px solid rgba(0,0,0,.06);
-      transition: transform .25s ease, box-shadow .25s ease;
+      flex-shrink: 0;
+      transition: transform .2s, box-shadow .2s;
       cursor: pointer;
     }
-    @media(max-width: 959px) {
-      .preview-strip img { width: 72px; height: 94px; flex-shrink: 0; }
-    }
     .preview-strip img:hover {
-      transform: scale(1.05) translateY(-2px);
-      box-shadow: 0 8px 20px rgba(0,0,0,.12);
+      transform: scale(1.05);
+      box-shadow: 0 6px 18px rgba(0,0,0,.12);
     }
 
-    /* actions Alignment fix */
+    /* actions */
     .app-actions {
       display: flex;
       gap: 8px;
       flex-wrap: wrap;
-      margin-top: auto; /* Ensures button row is always stuck to card base */
+      margin-top: auto; 
       padding-top: 12px;
     }
     .btn {
@@ -350,7 +301,6 @@
       white-space: nowrap;
     }
     .btn:hover { filter: brightness(.95); transform: translateY(-1px); }
-    .btn:active { transform: translateY(0); }
     .btn-melt   { background: var(--clr-melt); color: #fff; }
     .btn-puzl   { background: var(--clr-puzl); color: #fff; }
     .btn-book   { background: var(--clr-book); color: #fff; }
@@ -403,6 +353,22 @@
     }
     .footer a { color: var(--clr-muted); text-decoration: none; }
     .footer a:hover { color: var(--clr-ink); }
+
+    /* ── DYNAMIC MOBILE OVERRIDES ── */
+    @media (max-width: 679px) {
+      .studio-hero { padding: 56px 0 36px; }
+      .app-grid { gap: 16px; padding-bottom: 64px; }
+      .app-card { padding: 22px; border-radius: 20px; }
+      .app-top { gap: 12px; margin-bottom: 14px; }
+      .app-logo-wrap { width: 46px; height: 46px; }
+      .app-name { font-size: 18px; }
+      .app-tagline { font-size: 12px; }
+      .app-desc { font-size: 13.5px; line-height: 1.55; margin-bottom: 16px; }
+      .game-pills { margin-bottom: 20px; gap: 4px; }
+      .pill { font-size: 10px; padding: 4px 10px; }
+      .app-actions { gap: 6px; }
+      .btn { padding: 10px 14px; font-size: 12.5px; flex-grow: 1; }
+    }
   </style>
 </head>
 
