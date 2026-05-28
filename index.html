@@ -5,154 +5,353 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
 
   <title>Bell Studios</title>
-  <meta name="description" content="Bell Studios builds focused, human tools. Explore MELT and PUZL." />
+  <meta name="description" content="Bell Studios builds focused, human tools. Explore MELT, PUZL, and The Road Trip Bible." />
 
   <meta property="og:title" content="Bell Studios" />
-  <meta property="og:description" content="Explore MELT and PUZL — focused tools for mind and creativity." />
+  <meta property="og:description" content="Apps and books built for real life. MELT, PUZL, and The Road Trip Bible." />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="/assets/bellstudiosNoBG.png" />
+  <meta property="og:image" content="/assets/bell_studios_logo_nobg.png" />
 
-  <link rel="icon" href="/assets/bellstudiosNoBG.png" />
-  <link rel="apple-touch-icon" href="/assets/bellstudiosNoBG.png" />
+  <link rel="icon" href="/assets/bell_studios_logo_nobg.png" />
+  <link rel="apple-touch-icon" href="/assets/bell_studios_logo_nobg.png" />
 
-  <!-- Keep your existing base styles -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="/assets/melt.css" />
 
-  <!-- App gallery-specific styling -->
   <style>
-    /* Make the overall page less "MELT themed" */
-    body.bg-melt { background: #fbfaf8; }
-
-    /* Bigger brand/logo in nav */
-    .brand img {
-  width: 84px;
-  height: 84px;
-  border-radius: 12px;
-  object-fit: contain;
-}
-
-    .brand span {
-      font-weight: 800;
-      letter-spacing: .2px;
+    :root {
+      --clr-bg: #f7f6f3;
+      --clr-ink: #0f0f10;
+      --clr-muted: #6b6b72;
+      --clr-melt: #d86a2a;
+      --clr-melt-soft: rgba(216,106,42,.12);
+      --clr-puzl: #6c4fd8;
+      --clr-puzl-soft: rgba(108,79,216,.12);
+      --clr-book: #1a3a5c;
+      --clr-book-soft: rgba(26,58,92,.10);
+      --clr-book-accent: #e8b84b;
+      --radius: 20px;
     }
 
-    /* App gallery */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--clr-bg);
+      font-family: 'DM Sans', sans-serif;
+      color: var(--clr-ink);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(247,246,243,.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(0,0,0,.06);
+    }
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: inherit;
+    }
+    .brand img {
+      width: 36px;
+      height: 36px;
+      object-fit: contain;
+    }
+    .brand span {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 17px;
+      letter-spacing: -0.3px;
+    }
+    .nav-links {
+      display: flex;
+      gap: 28px;
+    }
+    .nav-links a {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--clr-muted);
+      text-decoration: none;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--clr-ink); }
+
+    /* ── HERO ── */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
     .studio-hero {
-      padding-top: 14px;
-      margin-bottom: 18px;
+      padding: 72px 0 48px;
     }
     .studio-kicker {
-      font-size: 13px;
-      opacity: .75;
-      margin: 0 0 6px 0;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--clr-muted);
+      margin-bottom: 14px;
     }
     .studio-title {
-      font-size: clamp(26px, 3.5vw, 44px);
-      line-height: 1.05;
-      margin: 0 0 10px 0;
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(38px, 5vw, 64px);
       font-weight: 900;
-      letter-spacing: -0.6px;
+      line-height: 1.0;
+      letter-spacing: -1.5px;
+      margin-bottom: 18px;
+    }
+    .studio-title em {
+      font-style: normal;
+      color: var(--clr-puzl);
     }
     .studio-sub {
-      margin: 0;
-      max-width: 720px;
-      opacity: .9;
+      font-size: 17px;
+      color: var(--clr-muted);
+      max-width: 520px;
+      line-height: 1.6;
     }
 
+    /* ── GRID ── */
     .app-grid {
       display: grid;
       grid-template-columns: repeat(12, 1fr);
-      gap: 16px;
-      margin-top: 18px;
+      gap: 18px;
+      padding-bottom: 80px;
     }
+
     .app-card {
-      grid-column: span 6;
-      border-radius: 18px;
-      padding: 18px;
+      border-radius: var(--radius);
+      padding: 28px;
       border: 1px solid rgba(0,0,0,.06);
-      box-shadow: 0 12px 30px rgba(0,0,0,.06);
+      box-shadow: 0 8px 32px rgba(0,0,0,.05);
       overflow: hidden;
       position: relative;
-      min-height: 240px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      transition: transform .25s, box-shadow .25s;
+    }
+    .app-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 48px rgba(0,0,0,.09);
     }
 
-    /* Make cards stack on mobile */
-    @media (max-width: 860px) {
-      .app-card { grid-column: span 12; }
+    /* card spans */
+    .app-card--melt  { grid-column: span 4; }
+    .app-card--puzl  { grid-column: span 4; }
+    .app-card--book  { grid-column: span 4; }
+
+    @media (max-width: 900px) {
+      .app-card--melt,
+      .app-card--puzl,
+      .app-card--book { grid-column: span 12; }
     }
 
+    /* themes */
+    .app-card--melt { background: linear-gradient(145deg, rgba(216,106,42,.13), #faf9f7); }
+    .app-card--puzl { background: linear-gradient(145deg, rgba(108,79,216,.13), #f8f7fc); }
+    .app-card--book { background: linear-gradient(145deg, rgba(26,58,92,.10), #f6f8fb); }
+
+    /* card internals */
     .app-top {
       display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 10px;
+      align-items: flex-start;
+      gap: 14px;
+      margin-bottom: 14px;
     }
-    .app-logo {
-  background: none;
-  border: none;
-  padding: 0;
-  box-shadow: none;
-}
-
-.app-logo img {
-  width: 56px;
-  height: 56px;
-  border-radius: 0; /* let the logo decide its own shape */
-}
-
+    .app-logo img {
+      width: 52px;
+      height: 52px;
+      border-radius: 12px;
+      object-fit: contain;
+    }
     .app-name {
-      margin: 0;
+      font-family: 'Syne', sans-serif;
       font-size: 22px;
       font-weight: 900;
-      letter-spacing: -0.2px;
+      letter-spacing: -0.3px;
+      margin-bottom: 3px;
     }
+    .app-card--melt .app-name { color: #b85520; }
+    .app-card--puzl .app-name { color: var(--clr-puzl); }
+    .app-card--book .app-name { color: var(--clr-book); }
+
     .app-tagline {
-      margin: 4px 0 0 0;
-      opacity: .9;
-      max-width: 520px;
+      font-size: 13px;
+      color: var(--clr-muted);
+      line-height: 1.5;
     }
 
+    .app-desc {
+      font-size: 14px;
+      line-height: 1.65;
+      color: #333;
+      margin-bottom: 16px;
+    }
+
+    .game-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 18px;
+    }
+    .pill {
+      font-size: 11px;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 20px;
+      letter-spacing: .3px;
+    }
+    .app-card--puzl .pill {
+      background: rgba(108,79,216,.12);
+      color: var(--clr-puzl);
+    }
+    .app-card--book .pill {
+      background: rgba(26,58,92,.10);
+      color: var(--clr-book);
+    }
+    .app-card--melt .pill {
+      background: rgba(216,106,42,.12);
+      color: var(--clr-melt);
+    }
+
+    /* page preview strip */
+    .preview-strip {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      margin-bottom: 18px;
+      padding-bottom: 4px;
+      scrollbar-width: none;
+    }
+    .preview-strip::-webkit-scrollbar { display: none; }
+    .preview-strip img {
+      width: 72px;
+      height: 90px;
+      object-fit: cover;
+      object-position: top;
+      border-radius: 8px;
+      border: 1px solid rgba(0,0,0,.08);
+      flex-shrink: 0;
+      transition: transform .2s;
+      cursor: pointer;
+    }
+    .preview-strip img:hover { transform: scale(1.06); }
+
+    /* actions */
     .app-actions {
       display: flex;
-      gap: 10px;
+      gap: 8px;
       flex-wrap: wrap;
-      margin-top: 14px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 9px 16px;
+      border-radius: 10px;
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: filter .2s, transform .15s;
+      cursor: pointer;
+      border: none;
+    }
+    .btn:hover { filter: brightness(.94); transform: translateY(-1px); }
+    .btn-primary-melt  { background: var(--clr-melt); color: #fff; }
+    .btn-primary-puzl  { background: var(--clr-puzl); color: #fff; }
+    .btn-primary-book  { background: var(--clr-book); color: #fff; }
+    .btn-accent-book   { background: var(--clr-book-accent); color: #1a1a1a; }
+    .btn-ghost {
+      background: rgba(0,0,0,.06);
+      color: var(--clr-ink);
     }
 
-    /* MELT theme */
-    .app-melt {
-      background: linear-gradient(135deg, rgba(255,168,89,.20), rgba(251,250,248,1));
+    /* book badge */
+    .book-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 20px;
+      background: var(--clr-book-accent);
+      color: #1a1a1a;
+      margin-bottom: 10px;
+      letter-spacing: .3px;
     }
-    .app-melt .app-name { color: #1a1d3a; }
-    .app-melt .btn { background: #d86a2a; } /* warm orange */
-    .app-melt .btn:hover { filter: brightness(0.96); }
 
-    /* PUZL theme (lavender + midnight) */
-    .app-puzl {
-      background: linear-gradient(135deg, rgba(166,148,247,.22), rgba(26,29,58,.04));
+    /* lightbox */
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,.85);
+      z-index: 999;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
     }
-    .app-puzl .app-name { color: #1A1D3A; }
-    .app-puzl .btn { background: #E7E7EF; } /* Mist Grey */
-.app-puzl .btn:hover { filter: brightness(0.96); }
+    .lightbox.open { display: flex; }
+    .lightbox img {
+      max-width: 90vw;
+      max-height: 90vh;
+      border-radius: 12px;
+      box-shadow: 0 32px 80px rgba(0,0,0,.5);
+    }
+    .lightbox-close {
+      position: absolute;
+      top: 20px;
+      right: 24px;
+      font-size: 32px;
+      color: #fff;
+      cursor: pointer;
+      line-height: 1;
+      background: none;
+      border: none;
+    }
 
-
-    /* Footer tweaks */
-    .footer small { opacity: .75; }
+    /* footer */
+    .footer {
+      border-top: 1px solid rgba(0,0,0,.07);
+      padding: 28px 0;
+    }
+    .footer small {
+      font-size: 13px;
+      color: var(--clr-muted);
+    }
+    .footer a { color: var(--clr-muted); }
   </style>
 </head>
 
-<body class="bg-melt">
-  <!-- Bell Studios nav only -->
+<body>
   <nav class="nav">
     <div class="nav-inner">
-      <div class="brand">
-        <img src="/assets/bellstudiosNoBG.png" alt="Bell Studios logo" />
+      <a class="brand" href="/">
+        <img src="/assets/bell_studios_logo_nobg.png" alt="Bell Studios" />
         <span>Bell Studios</span>
-      </div>
-
+      </a>
       <div class="nav-links">
         <a href="/">Home</a>
         <a href="/about.html">About</a>
@@ -162,19 +361,16 @@
   </nav>
 
   <main class="container">
-    <!-- Minimal studio intro (apps are the focus) -->
     <section class="studio-hero">
-      <p class="studio-kicker">Focused, human tools.</p>
-      <h1 class="studio-title">Explore the apps.</h1>
-      <p class="studio-sub">
-        Bell Studios ships products with distinct identities. Pick an app below to learn more.
-      </p>
+      <p class="studio-kicker">Bell Studios LLC</p>
+      <h1 class="studio-title">Built for real life.<br><em>Not just screens.</em></h1>
+      <p class="studio-sub">Apps and books that work — on the road, at the table, or in the backseat at mile 200.</p>
     </section>
 
-    <!-- App gallery -->
     <section class="app-grid">
+
       <!-- MELT -->
-      <article class="app-card app-melt">
+      <article class="app-card app-card--melt">
         <div>
           <div class="app-top">
             <div class="app-logo">
@@ -182,69 +378,129 @@
             </div>
             <div>
               <h2 class="app-name">MELT</h2>
-              <p class="app-tagline">Emotion-first companion that translates tangled experience into clear language and patterns.</p>
+              <p class="app-tagline">Emotion-first AI companion</p>
             </div>
           </div>
-
-          <div class="card" style="padding:14px; margin-top:12px;">
-            <strong>Built for:</strong> overthinkers, skeptics, the emotionally orphaned — anyone who wants clarity without therapy-speak.
+          <p class="app-desc">Translates tangled feelings into clear language and patterns. Built for overthinkers, skeptics, and anyone who wants clarity without therapy-speak.</p>
+          <div class="game-pills">
+            <span class="pill">Emotional clarity</span>
+            <span class="pill">AI companion</span>
+            <span class="pill">No jargon</span>
           </div>
         </div>
-
         <div class="app-actions">
-          <a class="btn" href="/melt/index.html">About MELT</a>
+          <a class="btn btn-primary-melt" href="/melt/index.html">About MELT</a>
           <a class="btn btn-ghost" href="/melt/privacy.html">Privacy</a>
           <a class="btn btn-ghost" href="/melt/terms.html">Terms</a>
         </div>
       </article>
 
       <!-- PUZL -->
-<article class="app-card app-puzl">
-  <div>
-    <div class="app-top">
-      <div class="app-logo">
-        <img src="/assets/puzlIcon.jpeg" alt="PUZL logo" />
-      </div>
-      <div>
-        <h2 class="app-name">PUZL</h2>
-        <p class="app-tagline">
-          Generative puzzles — including AI-created puzzles from any image you can imagine.
-        </p>
-      </div>
-    </div>
+      <article class="app-card app-card--puzl">
+        <div>
+          <div class="app-top">
+            <div class="app-logo">
+              <img src="/assets/puzlIcon.jpeg" alt="PUZL logo" />
+            </div>
+            <div>
+              <h2 class="app-name">PUZL</h2>
+              <p class="app-tagline">Family game suite · 6 games in one</p>
+            </div>
+          </div>
+          <p class="app-desc">Jigsaw puzzles, word search, sudoku, memory, flag quiz, and bingo — all in one app. Turn your own photos into puzzles, or let AI generate them. New daily puzzle every morning. Works 100% offline.</p>
+          <div class="game-pills">
+            <span class="pill">Jigsaw</span>
+            <span class="pill">Word Search</span>
+            <span class="pill">Sudoku</span>
+            <span class="pill">Memory</span>
+            <span class="pill">Flag Quiz</span>
+            <span class="pill">Bingo</span>
+          </div>
+        </div>
+        <div class="app-actions">
+          <a class="btn btn-primary-puzl" href="/puzl/index.html">About PUZL</a>
+          <a class="btn btn-ghost" href="/puzl/privacy.html">Privacy</a>
+          <a class="btn btn-ghost" href="/puzl/terms.html">Terms</a>
+        </div>
+      </article>
 
-    <div class="card" style="padding:14px; margin-top:12px;">
-      <strong>Coming soon:</strong> upload photos, generate AI art, and instantly turn it into a clean, satisfying puzzle.
-    </div>
-  </div>
+      <!-- PUZL BOOK -->
+      <article class="app-card app-card--book">
+        <div>
+          <div class="app-top">
+            <div class="app-logo">
+              <img src="/assets/PUZL_Book_Logo.png" alt="PUZL Book logo" />
+            </div>
+            <div>
+              <h2 class="app-name">PUZL Book</h2>
+              <p class="app-tagline">The Road Trip Bible · Now on Amazon</p>
+            </div>
+          </div>
 
-  <div class="app-actions">
-  <a class="btn" href="/puzl/index.html">About PUZL</a>
-  <a class="btn btn-ghost" href="/puzl/privacy.html">Privacy</a>
-  <a class="btn btn-ghost" href="/puzl/terms.html">Terms</a>
-</div>
+          <span class="book-badge">📚 Now Available</span>
 
-</article>
+          <p class="app-desc">300 pages of mazes, word searches, crosswords, sudoku, trivia, coloring, bingo, secret codes, and more. Built to survive a cross-country road trip. For kids ages 5–12.</p>
+
+          <div class="preview-strip" id="previewStrip">
+            <img src="/assets/RTB_Front_Cover.png" alt="Road Trip Bible cover" title="Front Cover" />
+            <img src="/assets/pages/page2.png" alt="Word Search preview" title="Word Search" />
+            <img src="/assets/pages/page1.png" alt="Bingo preview" title="Bingo" />
+            <img src="/assets/pages/page4.png" alt="Sudoku preview" title="Sudoku" />
+            <img src="/assets/pages/page3.png" alt="Crossword preview" title="Crossword" />
+            <img src="/assets/pages/page5.png" alt="Mazes preview" title="Mazes" />
+            <img src="/assets/pages/page6.png" alt="Would You Rather preview" title="Would You Rather" />
+            <img src="/assets/pages/page7.png" alt="Horoscopes preview" title="Horoscopes" />
+          </div>
+
+          <div class="game-pills">
+            <span class="pill">300 Pages</span>
+            <span class="pill">Ages 5–12</span>
+            <span class="pill">40+ Hours</span>
+            <span class="pill">Answer Key</span>
+          </div>
+        </div>
+        <div class="app-actions">
+          <a class="btn btn-accent-book" href="https://amzn.to/4vdVwOL" target="_blank" rel="noopener">🛒 Buy on Amazon</a>
+          <a class="btn btn-primary-book" href="/puzl/index.html">About PUZL</a>
+        </div>
+      </article>
+
     </section>
   </main>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lightboxClose">×</button>
+    <img id="lightboxImg" src="" alt="" />
+  </div>
 
   <footer class="footer">
     <div class="container">
       <small>
-        © <script>document.write(new Date().getFullYear())</script> Bell Studios ·
+        © <script>document.write(new Date().getFullYear())</script> Bell Studios LLC ·
         <a href="mailto:support@bellstudios.io">support@bellstudios.io</a>
       </small>
     </div>
   </footer>
 
   <script>
-    // Hide PUZL fallback text if the image loads
-    (function () {
-      var img = document.querySelector(".app-puzl .app-logo img");
-      var fb = document.getElementById("puzl-fallback");
-      if (!img || !fb) return;
-      img.addEventListener("load", function () { fb.style.display = "none"; });
-    })();
+    // Lightbox for page previews
+    const strip = document.getElementById('previewStrip');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const lightboxClose = document.getElementById('lightboxClose');
+
+    strip.querySelectorAll('img').forEach(img => {
+      img.addEventListener('click', () => {
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt;
+        lightbox.classList.add('open');
+      });
+    });
+
+    lightboxClose.addEventListener('click', () => lightbox.classList.remove('open'));
+    lightbox.addEventListener('click', e => { if (e.target === lightbox) lightbox.classList.remove('open'); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') lightbox.classList.remove('open'); });
   </script>
 </body>
 </html>
