@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+  <title>Gameday Fan Engagement Assets | Bell Studios</title>
+  <meta name="description" content="White-labeled, sponsor-funded activity playbooks and digital companions for professional sports franchises." />
+  
+  <meta property="og:title" content="Bell Studios | Gameday Fan Engagement" />
+  <meta property="og:description" content="Custom youth activity books designed to drive partner revenue for NHL, MiLB, NBA, and MLS teams." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/assets/bell_studios_logo_nobg.png" />
+
+  <link rel="icon" href="/assets/bell_studios_logo_nobg.png" />
+  <link rel="apple-touch-icon" href="/assets/bell_studios_logo_nobg.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;700;900&family=DM+Sans:ital,wght=0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --clr-bg: #0f0f10; /* Dark premium sports aesthetic */
+      --clr-card: #18181c;
+      --clr-ink: #f8f7f4;
+      --clr-muted: #8e8e93;
+      --clr-gameday: #00aa55; /* Field/Victory Green accent */
+      --radius: 24px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--clr-bg);
+      font-family: 'DM Sans', sans-serif;
+      color: var(--clr-ink);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(15, 15, 16, 0.85);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255,255,255,.04);
+    }
+    .nav-inner {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 88px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      text-decoration: none;
+      color: inherit;
+    }
+    .brand img {
+      width: 54px;
+      height: 54px;
+      object-fit: contain;
+    }
+    .brand span {
+      font-family: 'Unbounded', sans-serif;
+      font-weight: 800;
+      font-size: 18px;
+      letter-spacing: -0.4px;
+    }
+    .nav-links {
+      display: flex;
+      gap: 32px;
+    }
+    .nav-links a {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--clr-muted);
+      text-decoration: none;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--clr-ink); }
+
+    /* ── LAYOUT ── */
+    .container {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 24px;
+      width: 100%;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      padding: 96px 0 64px;
+      text-align: center;
+    }
+    .kicker {
+      font-family: 'Unbounded', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--clr-gameday);
+      margin-bottom: 20px;
+    }
+    .title {
+      font-family: 'Unbounded', sans-serif;
+      font-size: clamp(28px, 5vw, 52px);
+      font-weight: 900;
+      line-height: 1.15;
+      letter-spacing: -1.2px;
+      max-width: 900px;
+      margin: 0 auto 24px;
+    }
+    .title em {
+      font-style: normal;
+      color: var(--clr-gameday);
+    }
+    .sub {
+      font-size: 19px;
+      color: var(--clr-muted);
+      max-width: 720px;
+      line-height: 1.6;
+      margin: 0 auto 36px;
+    }
+
+    /* ── VALUE PILLARS ── */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 32px;
+      padding-bottom: 96px;
+    }
+    .card {
+      background: var(--clr-card);
+      border-radius: var(--radius);
+      padding: 40px;
+      border: 1px solid rgba(255, 255, 255, 0.04);
+    }
+    .card-title {
+      font-family: 'Unbounded', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      color: #fff;
+    }
+    .card-desc {
+      font-size: 15px;
+      line-height: 1.65;
+      color: var(--clr-muted);
+    }
+
+    /* ── VISUAL SHOWCASE ── */
+    .showcase {
+      padding: 64px 0 96px;
+      border-top: 1px solid rgba(255,255,255,.04);
+      text-align: center;
+    }
+    .showcase-title {
+      font-family: 'Unbounded', sans-serif;
+      font-size: 24px;
+      font-weight: 800;
+      margin-bottom: 16px;
+    }
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+      margin-top: 48px;
+    }
+    .portfolio-item {
+      background: var(--clr-card);
+      border-radius: 16px;
+      padding: 16px;
+      border: 1px solid rgba(255,255,255,.04);
+      transition: transform 0.3s ease;
+    }
+    .portfolio-item:hover {
+      transform: scale(1.03);
+    }
+    .portfolio-item img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      display: block;
+    }
+    .team-label {
+      font-family: 'Unbounded', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      margin-top: 16px;
+      color: var(--clr-muted);
+    }
+
+    /* ── CTA / FORM ── */
+    .cta-section {
+      background: linear-gradient(180deg, var(--clr-card) 0%, rgba(15,15,16,0) 100%);
+      border-radius: var(--radius);
+      padding: 64px 32px;
+      border: 1px solid rgba(255,255,255,.04);
+      text-align: center;
+      margin-bottom: 96px;
+    }
+    .form-container {
+      max-width: 500px;
+      margin: 40px auto 0;
+      text-align: left;
+    }
+    .btn-submit {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      padding: 16px 24px;
+      background: var(--clr-gameday);
+      color: #fff;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      text-decoration: none;
+      border-radius: 12px;
+      transition: transform .2s, filter .2s;
+      border: none;
+      cursor: pointer;
+      margin-top: 12px;
+    }
+    .btn-submit:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.05);
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      border-top: 1px solid rgba(255,255,255,.04);
+      padding: 40px 0;
+    }
+    .footer small {
+      font-size: 13px;
+      color: var(--clr-muted);
+    }
+    .footer a { color: var(--clr-muted); text-decoration: none; }
+    .footer a:hover { color: var(--clr-ink); }
+
+    @media (max-width: 768px) {
+      .hero { padding: 64px 0 40px; }
+      .title { font-size: 28px; }
+      .sub { font-size: 16px; }
+      .grid { gap: 20px; }
+      .card { padding: 28px; }
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="/">
+        <img src="/assets/bell_studios_logo_nobg.png" alt="Bell Studios" />
+        <span>Bell Studios</span>
+      </a>
+      <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/about.html">About</a>
+        <a href="mailto:hello@bellstudios.io">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container">
+    
+    <section class="hero">
+      <p class="kicker">B2B Partnership Asset</p>
+      <h1 class="title">Unlock New Sponsor Revenue with <em>Custom Gameday Playbooks</em></h1>
+      <p class="sub">We build white-labeled youth fan engagement assets tailored specifically to your franchise history, mascots, and stadium culture—fully funded by your corporate partners.</p>
+      <a class="btn-submit" style="max-width: 280px; margin: 0 auto;" href="#pitch-form">Request Custom Mockup</a>
+    </section>
+
+    <section class="grid">
+      <div class="card">
+        <h3 class="card-title">Turn-Key Inventory</h3>
+        <p class="card-desc">Engineered with high-visibility corporate partner branding zones on the cover and inside game spreads. Your sales team can use this as a premium, standalone inventory asset that easily drives net profits.</p>
+      </div>
+      <div class="card">
+        <h3 class="card-title">Multi-Channel Growth</h3>
+        <p class="card-desc">We bridge the physical and digital footprint. Kids stay locked into the live action via highly customized physical games, while scanning built-in mechanics to connect with the universal PUZL utility app framework.</p>
+      </div>
+      <div class="card">
+        <h3 class="card-title">Evergreen Versatility</h3>
+        <p class="card-desc">Perfect for Sunday Family Days or Mascot Theme Nights, our timeless layouts double as premier assets for paid Kids Club packages, summer youth camps, and Community Relations outreach initiatives.</p>
+      </div>
+    </section>
+
+    <section class="showcase">
+      <h2 class="showcase-title">Modular. Scalable. Swappable.</h2>
+      <p class="sub" style="font-size: 16px;">See how seamlessly our master engagement layouts skin to match iconic team identities across professional leagues.</p>
+      
+      <div class="portfolio-grid">
+        <div class="portfolio-item">
+          <img src="/assets/pages/Dallas_Stars_Puzl_Book_Cover.jpg" alt="Dallas Stars Concept" />
+          <p class="team-label">Dallas Stars Edition</p>
+        </div>
+        <div class="portfolio-item">
+          <img src="/assets/pages/Detroit_Red_Wings_Puzl_Book_Cover.jpg" alt="Detroit Red Wings Concept" />
+          <p class="team-label">Detroit Red Wings Edition</p>
+        </div>
+        <div class="portfolio-item">
+          <img src="/assets/pages/Boston_Bruins_Puzl_Book_Cover.jpg" alt="Boston Bruins Concept" />
+          <p class="team-label">Boston Bruins Edition</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section" id="pitch-form">
+      <h2 class="showcase-title">Get a Free Concept Layout for Your Team</h2>
+      <p class="sub" style="font-size: 16px; max-width: 500px; margin-bottom: 20px;">Provide your contact details below, and our studio will build a tailored digital cover mockup matching your franchise guidelines to show your corporate sales team.</p>
+      
+      <div class="form-container">
+        <!-- Direct clean mailto fallback for rapid testing without backend code -->
+        <a href="mailto:derek@bellstudios.io?subject=Gameday%20Mockup%20Request" class="btn-submit" style="text-align: center;">
+          📩 Email Us for a Custom Mockup
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <small>
+        © <script>document.write(new Date().getFullYear())</script> Bell Studios LLC · 
+        <a href="mailto:support@bellstudios.io">support@bellstudios.io</a>
+      </small>
+    </div>
+  </footer>
+</body>
+</html>
