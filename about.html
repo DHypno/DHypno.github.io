@@ -1,1 +1,444 @@
+```html
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
 
+  <title>About | Bell Studios</title>
+  <meta name="description" content="Bell Studios is an independent product and publishing studio building apps, books, and engagement systems." />
+
+  <meta property="og:title" content="About Bell Studios" />
+  <meta property="og:description" content="An independent product and publishing studio building useful things for play, clarity, and connection." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/assets/bell_studios_logo_nobg.png" />
+
+  <link rel="icon" href="/assets/bell_studios_logo_nobg.png" />
+  <link rel="apple-touch-icon" href="/assets/bell_studios_logo_nobg.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;700;900&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --clr-bg: #0b0b0c;
+      --clr-card: #151518;
+      --clr-ink: #f8f7f4;
+      --clr-muted: #9a9aa3;
+      --clr-brand: #A694F7;
+      --clr-melt: #d86a2a;
+      --clr-book: #e8b84b;
+      --radius: 24px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--clr-bg);
+      font-family: 'DM Sans', sans-serif;
+      color: var(--clr-ink);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(15, 15, 16, 0.85);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255,255,255,.04);
+    }
+
+    .nav-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 88px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .brand img {
+      width: 54px;
+      height: 54px;
+      object-fit: contain;
+    }
+
+    .brand span {
+      font-family: 'Unbounded', sans-serif;
+      font-weight: 800;
+      font-size: 18px;
+      letter-spacing: -0.4px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--clr-muted);
+      text-decoration: none;
+      transition: color .2s;
+    }
+
+    .nav-links a:hover { color: var(--clr-ink); }
+
+    .container {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 24px;
+      width: 100%;
+    }
+
+    .hero {
+      padding: 96px 0 72px;
+      text-align: center;
+    }
+
+    .kicker {
+      font-family: 'Unbounded', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--clr-brand);
+      margin-bottom: 20px;
+    }
+
+    .title {
+      font-family: 'Unbounded', sans-serif;
+      font-size: clamp(30px, 5vw, 56px);
+      font-weight: 900;
+      line-height: 1.15;
+      letter-spacing: -1.2px;
+      max-width: 940px;
+      margin: 0 auto 24px;
+    }
+
+    .title em {
+      font-style: normal;
+      color: var(--clr-brand);
+      text-shadow: 0 0 18px rgba(166,148,247,.35);
+    }
+
+    .sub {
+      font-size: 19px;
+      color: var(--clr-muted);
+      max-width: 760px;
+      line-height: 1.6;
+      margin: 0 auto;
+    }
+
+    .section {
+      padding: 72px 0;
+      border-top: 1px solid rgba(255,255,255,.04);
+    }
+
+    .section-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    .section-kicker {
+      font-family: 'Unbounded', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2.4px;
+      text-transform: uppercase;
+      color: var(--clr-brand);
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-family: 'Unbounded', sans-serif;
+      font-size: clamp(24px, 3vw, 36px);
+      font-weight: 900;
+      line-height: 1.2;
+      letter-spacing: -0.8px;
+      margin-bottom: 14px;
+    }
+
+    .body-copy {
+      color: var(--clr-muted);
+      font-size: 17px;
+      line-height: 1.75;
+    }
+
+    .body-copy p + p {
+      margin-top: 18px;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
+      margin-top: 36px;
+    }
+
+    .card {
+      background: var(--clr-card);
+      border-radius: var(--radius);
+      padding: 30px;
+      border: 1px solid rgba(255,255,255,.06);
+    }
+
+    .card h3 {
+      font-family: 'Unbounded', sans-serif;
+      font-size: 17px;
+      font-weight: 800;
+      margin-bottom: 12px;
+      color: #fff;
+    }
+
+    .card p {
+      color: var(--clr-muted);
+      font-size: 15px;
+      line-height: 1.65;
+    }
+
+    .highlight {
+      background: linear-gradient(180deg, var(--clr-card) 0%, rgba(15,15,16,0) 100%);
+      border-radius: var(--radius);
+      padding: 52px;
+      border: 1px solid rgba(255,255,255,.05);
+      text-align: center;
+    }
+
+    .highlight p {
+      color: var(--clr-muted);
+      font-size: 17px;
+      line-height: 1.65;
+      max-width: 760px;
+      margin: 0 auto 28px;
+    }
+
+    .btn-row {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px 20px;
+      border-radius: 12px;
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform .2s ease, filter .2s ease, background .2s ease;
+      min-width: 190px;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.05);
+    }
+
+    .btn-brand {
+      background: var(--clr-brand);
+      color: #fff;
+      box-shadow: 0 8px 24px rgba(166,148,247,.25);
+    }
+
+    .btn-ghost {
+      background: rgba(255,255,255,.055);
+      color: var(--clr-ink);
+      border: 1px solid rgba(255,255,255,.08);
+    }
+
+    .footer {
+      border-top: 1px solid rgba(255,255,255,.04);
+      padding: 40px 0;
+    }
+
+    .footer small {
+      font-size: 13px;
+      color: var(--clr-muted);
+    }
+
+    .footer a {
+      color: var(--clr-muted);
+      text-decoration: none;
+    }
+
+    .footer a:hover { color: var(--clr-ink); }
+
+    @media (max-width: 768px) {
+      .nav-inner { height: 76px; }
+
+      .brand img {
+        width: 48px;
+        height: 48px;
+      }
+
+      .brand span { font-size: 16px; }
+
+      .nav-links {
+        gap: 16px;
+      }
+
+      .nav-links a {
+        font-size: 13px;
+      }
+
+      .hero {
+        padding: 64px 0 48px;
+      }
+
+      .sub {
+        font-size: 16px;
+      }
+
+      .section {
+        padding: 52px 0;
+      }
+
+      .section-grid,
+      .card-grid {
+        grid-template-columns: 1fr;
+        gap: 22px;
+      }
+
+      .highlight {
+        padding: 34px 24px;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .btn-row {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="/">
+        <img src="/assets/bell_studios_logo_nobg.png" alt="Bell Studios" />
+        <span>Bell Studios</span>
+      </a>
+
+      <div class="nav-links">
+        <a href="/#publishing">Publishing</a>
+        <a href="/#apps">Apps</a>
+        <a href="/about.html">About</a>
+        <a href="mailto:hello@bellstudios.io">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container">
+
+    <section class="hero">
+      <p class="kicker">About Bell Studios</p>
+      <h1 class="title">An independent studio for <em>useful things.</em></h1>
+      <p class="sub">
+        Bell Studios builds publishing products, consumer apps, and engagement systems designed around play, clarity, and connection.
+      </p>
+    </section>
+
+    <section class="section">
+      <div class="section-grid">
+        <div>
+          <p class="section-kicker">The Studio</p>
+          <h2 class="section-title">Small by design. Broad by intention.</h2>
+        </div>
+
+        <div class="body-copy">
+          <p>
+            Bell Studios is an independent product and publishing studio founded by Derek Bell.
+          </p>
+
+          <p>
+            The studio creates software, activity books, games, and branded engagement programs with a simple goal: build things people actually want to use.
+          </p>
+
+          <p>
+            Some projects become apps. Some become books. Some become custom programs for organizations. The format changes, but the core idea stays the same — create experiences that feel clear, useful, and worth coming back to.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div>
+        <p class="section-kicker">What We Build</p>
+        <h2 class="section-title">Products across publishing, play, and engagement.</h2>
+
+        <div class="card-grid">
+          <article class="card">
+            <h3>Publishing Products</h3>
+            <p>
+              Puzzle books, activity books, and custom publishing projects built for families, organizations, and branded experiences.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Fan Engagement Programs</h3>
+            <p>
+              Sponsor-funded activity books for sports teams, kids clubs, giveaways, theme nights, and community programs.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Consumer Apps</h3>
+            <p>
+              Focused mobile products like PUZL and MELT, built around play, reflection, and everyday usefulness.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="highlight">
+        <p class="section-kicker">The Philosophy</p>
+        <h2 class="section-title">Useful beats complicated.</h2>
+        <p>
+          Bell Studios exists because the best products usually feel obvious once they work. Whether the result is a puzzle book, a mobile app, or a sponsor-ready activation, the goal is to make something that solves a real problem without adding unnecessary friction.
+        </p>
+
+        <div class="btn-row">
+          <a class="btn btn-brand" href="/#publishing">Explore Publishing</a>
+          <a class="btn btn-ghost" href="/gameday">View Gameday Programs</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <small>
+        © <script>document.write(new Date().getFullYear())</script> Bell Studios LLC ·
+        <a href="mailto:support@bellstudios.io">support@bellstudios.io</a>
+      </small>
+    </div>
+  </footer>
+</body>
+</html>
+```
