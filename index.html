@@ -1,3 +1,4 @@
+```html
 <!doctype html>
 <html lang="en">
 <head>
@@ -5,12 +6,12 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
 
   <title>Bell Studios</title>
-  <meta name="description" content="Bell Studios builds focused, human tools. Explore MELT, PUZL, and The Road Trip Bible." />
+  <meta name="description" content="Bell Studios builds publishing products, sponsor-funded engagement programs, and focused consumer apps." />
 
-<meta name="p:domain_verify" content="56f9b3b58233fe95332a81be41b40c79"/>
-  
+  <meta name="p:domain_verify" content="56f9b3b58233fe95332a81be41b40c79"/>
+
   <meta property="og:title" content="Bell Studios" />
-  <meta property="og:description" content="Apps and books built for real life. MELT, PUZL, and The Road Trip Bible." />
+  <meta property="og:description" content="Publishing products, sponsor-funded engagement programs, and focused consumer apps from Bell Studios." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="/assets/bell_studios_logo_nobg.png" />
 
@@ -19,23 +20,27 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;700;900&family=DM+Sans:ital,wght=0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="/assets/melt.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;700;900&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --clr-bg: #f8f7f4;
-      --clr-ink: #0f0f10;
-      --clr-muted: #6b6b72;
+      --clr-bg: #0b0b0c;
+      --clr-card: #151518;
+      --clr-card-soft: #1b1b20;
+      --clr-ink: #f8f7f4;
+      --clr-muted: #9a9aa3;
+      --clr-brand: #A694F7;
       --clr-melt: #d86a2a;
-      --clr-puzl: #6c4fd8;
-      --clr-book: #1a3a5c;
-      --clr-book-accent: #e8b84b;
+      --clr-puzl: #A694F7;
+      --clr-book: #e8b84b;
       --radius: 24px;
     }
 
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
     body {
       background: var(--clr-bg);
@@ -44,17 +49,17 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* ── NAV ── */
     .nav {
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(248, 247, 244, 0.85);
+      background: rgba(15, 15, 16, 0.85);
       backdrop-filter: blur(20px);
-      border-bottom: 1px solid rgba(0,0,0,.04);
+      border-bottom: 1px solid rgba(255,255,255,.04);
     }
+
     .nav-inner {
-      max-width: 1140px;
+      max-width: 1180px;
       margin: 0 auto;
       padding: 0 24px;
       height: 88px;
@@ -62,6 +67,7 @@
       align-items: center;
       justify-content: space-between;
     }
+
     .brand {
       display: flex;
       align-items: center;
@@ -69,21 +75,26 @@
       text-decoration: none;
       color: inherit;
     }
+
     .brand img {
       width: 54px;
       height: 54px;
       object-fit: contain;
     }
+
     .brand span {
       font-family: 'Unbounded', sans-serif;
       font-weight: 800;
       font-size: 18px;
       letter-spacing: -0.4px;
     }
+
     .nav-links {
       display: flex;
-      gap: 32px;
+      gap: 28px;
+      align-items: center;
     }
+
     .nav-links a {
       font-size: 14px;
       font-weight: 500;
@@ -91,171 +102,262 @@
       text-decoration: none;
       transition: color .2s;
     }
-    .nav-links a:hover { color: var(--clr-ink); }
 
-    /* ── LAYOUT ── */
+    .nav-links a:hover {
+      color: var(--clr-ink);
+    }
+
     .container {
-      max-width: 1140px;
+      max-width: 1180px;
       margin: 0 auto;
       padding: 0 24px;
       width: 100%;
     }
 
-    /* ── HERO ── */
-    .studio-hero {
-      padding: 80px 0 48px;
+    .hero {
+      padding: 96px 0 72px;
+      text-align: center;
     }
-    .studio-kicker {
+
+    .kicker {
       font-family: 'Unbounded', sans-serif;
       font-size: 11px;
       font-weight: 700;
       letter-spacing: 3px;
       text-transform: uppercase;
-      color: var(--clr-muted);
-      margin-bottom: 16px;
+      color: var(--clr-brand);
+      margin-bottom: 20px;
     }
-    .studio-title {
+
+    .title {
       font-family: 'Unbounded', sans-serif;
-      font-size: clamp(28px, 4.5vw, 56px);
+      font-size: clamp(30px, 5vw, 56px);
       font-weight: 900;
       line-height: 1.15;
       letter-spacing: -1.2px;
-      margin-bottom: 20px;
+      max-width: 940px;
+      margin: 0 auto 24px;
     }
-    .studio-title em {
+
+    .title em {
       font-style: normal;
-      color: var(--clr-puzl);
+      color: var(--clr-brand);
+      text-shadow: 0 0 18px rgba(166,148,247,.35);
     }
-    .studio-sub {
-      font-size: 18px;
+
+    .sub {
+      font-size: 19px;
       color: var(--clr-muted);
-      max-width: 620px;
+      max-width: 760px;
+      line-height: 1.6;
+      margin: 0 auto 36px;
+    }
+
+    .hero-actions {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px 20px;
+      border-radius: 12px;
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform .2s ease, filter .2s ease, background .2s ease;
+      min-width: 190px;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.05);
+    }
+
+    .btn-brand {
+      background: var(--clr-brand);
+      color: #fff;
+      box-shadow: 0 8px 24px rgba(166,148,247,.25);
+    }
+
+    .btn-ghost {
+      background: rgba(255,255,255,.055);
+      color: var(--clr-ink);
+      border: 1px solid rgba(255,255,255,.08);
+    }
+
+    .section {
+      padding: 72px 0;
+      border-top: 1px solid rgba(255,255,255,.04);
+    }
+
+    .section-head {
+      max-width: 780px;
+      margin-bottom: 32px;
+    }
+
+    .section-kicker {
+      font-family: 'Unbounded', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2.4px;
+      text-transform: uppercase;
+      color: var(--clr-brand);
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-family: 'Unbounded', sans-serif;
+      font-size: clamp(24px, 3vw, 36px);
+      font-weight: 900;
+      line-height: 1.2;
+      letter-spacing: -0.8px;
+      margin-bottom: 14px;
+    }
+
+    .section-desc {
+      font-size: 17px;
+      color: var(--clr-muted);
       line-height: 1.6;
     }
 
-    /* ── GRID SYSTEM (Flex/Grid Hybrid for stability) ── */
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 32px;
+    }
+
     .app-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 32px;
-      padding-bottom: 96px;
     }
 
-    @media (min-width: 992px) {
-      .app-grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
-    }
-
-    /* ── CARD OVERHAUL ── */
-    .app-card {
+    .card {
+      background: var(--clr-card);
       border-radius: var(--radius);
-      padding: 36px;
-      border: 1px solid rgba(0, 0, 0, 0.05);
-      background: #fff;
+      padding: 34px;
+      border: 1px solid rgba(255,255,255,.06);
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
-      gap: 24px;
-      min-width: 0; /* Prevents text elements from breaking layout boxes */
-      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      gap: 22px;
+      transition: transform .3s ease, border-color .3s ease;
     }
 
-    .app-card--melt { background: linear-gradient(180deg, rgba(216, 106, 42, 0.06) 0%, rgba(255, 255, 255, 0) 100%), #ffffff; }
-    .app-card--puzl { background: linear-gradient(180deg, rgba(108, 79, 216, 0.06) 0%, rgba(255, 255, 255, 0) 100%), #ffffff; }
-    .app-card--book { background: linear-gradient(180deg, rgba(26, 58, 92, 0.05) 0%, rgba(255, 255, 255, 0) 100%), #ffffff; }
-
-    .app-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 24px 48px rgba(15, 15, 16, 0.06);
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(255,255,255,.12);
     }
 
-    /* ── LOGOS (Zero Containers) ── */
-    .app-top {
+    .card-top {
       display: flex;
       align-items: center;
       gap: 16px;
     }
-    .app-logo-wrap {
-      width: 56px;
-      height: 56px;
+
+    .logo-wrap {
+      width: 58px;
+      height: 58px;
       display: flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
-      background: transparent !important;
-      border: none !important;
-      box-shadow: none !important;
-      border-radius: 0 !important;
     }
-    .app-logo-wrap img {
+
+    .logo-wrap img {
       width: 100%;
       height: 100%;
       object-fit: contain;
-      filter: drop-shadow(0 4px 12px rgba(0,0,0,0.08));
+      filter: drop-shadow(0 8px 18px rgba(0,0,0,.25));
     }
 
-    .app-name {
+    .card-name {
       font-family: 'Unbounded', sans-serif;
-      font-size: 22px;
+      font-size: 21px;
       font-weight: 800;
       letter-spacing: -0.5px;
-      margin-bottom: 2px;
-      line-height: 1.2;
+      margin-bottom: 4px;
     }
-    .app-card--melt .app-name { color: #b85520; }
-    .app-card--puzl .app-name { color: var(--clr-puzl); }
-    .app-card--book .app-name { color: var(--clr-book); }
 
-    .app-tagline {
+    .card-tagline {
       font-size: 13px;
       color: var(--clr-muted);
       font-weight: 500;
     }
 
-    .app-desc {
+    .card-desc {
       font-size: 15px;
       line-height: 1.65;
-      color: #3a3a3c;
+      color: var(--clr-muted);
     }
 
-    /* Pills Framework */
-    .game-pills {
+    .pills {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
-      margin-top: 14px;
     }
+
     .pill {
       font-size: 11px;
-      font-weight: 600;
+      font-weight: 700;
       padding: 6px 12px;
       border-radius: 20px;
-      letter-spacing: .1px;
       white-space: nowrap;
-    }
-    .app-card--melt .pill  { background: rgba(216,106,42,.08); color: #b85520; }
-    .app-card--puzl .pill  { background: rgba(108,79,216,.08); color: var(--clr-puzl); }
-    .app-card--book .pill  { background: rgba(26,58,92,.07); color: var(--clr-book); }
-
-    /* Book Badge */
-    .book-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-family: 'Unbounded', sans-serif;
-      font-size: 10px;
-      font-weight: 700;
-      padding: 6px 14px;
-      border-radius: 20px;
-      background: var(--clr-book-accent);
-      color: #1a1a1a;
-      margin-top: 12px;
-      letter-spacing: .5px;
-      text-transform: uppercase;
+      background: rgba(255,255,255,.06);
+      color: var(--clr-muted);
     }
 
-    /* Preview Images Strip */
+    .card-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: auto;
+    }
+
+    .card-actions .btn {
+      min-width: 0;
+      flex: 1 1 auto;
+    }
+
+    .book-card {
+      background:
+        linear-gradient(180deg, rgba(232,184,75,.08) 0%, rgba(21,21,24,0) 72%),
+        var(--clr-card);
+    }
+
+    .sports-card {
+      background:
+        linear-gradient(180deg, rgba(166,148,247,.10) 0%, rgba(21,21,24,0) 72%),
+        var(--clr-card);
+    }
+
+    .melt-card {
+      background:
+        linear-gradient(180deg, rgba(216,106,42,.09) 0%, rgba(21,21,24,0) 72%),
+        var(--clr-card);
+    }
+
+    .puzl-card {
+      background:
+        linear-gradient(180deg, rgba(166,148,247,.09) 0%, rgba(21,21,24,0) 72%),
+        var(--clr-card);
+    }
+
+    .book-card .card-name { color: var(--clr-book); }
+    .sports-card .card-name { color: var(--clr-brand); }
+    .melt-card .card-name { color: var(--clr-melt); }
+    .puzl-card .card-name { color: var(--clr-puzl); }
+
+    .book-card .pill { background: rgba(232,184,75,.10); color: var(--clr-book); }
+    .sports-card .pill { background: rgba(166,148,247,.10); color: var(--clr-brand); }
+    .melt-card .pill { background: rgba(216,106,42,.10); color: #e48a55; }
+    .puzl-card .pill { background: rgba(166,148,247,.10); color: var(--clr-brand); }
+
     .preview-strip {
       display: flex;
       gap: 8px;
@@ -264,55 +366,62 @@
       scrollbar-width: none;
       -webkit-overflow-scrolling: touch;
     }
-    .preview-strip::-webkit-scrollbar { display: none; }
+
+    .preview-strip::-webkit-scrollbar {
+      display: none;
+    }
+
     .preview-strip img {
       width: 76px;
       height: 98px;
       object-fit: cover;
       object-position: top;
       border-radius: 8px;
-      border: 1px solid rgba(0,0,0,.08);
+      border: 1px solid rgba(255,255,255,.08);
       flex-shrink: 0;
-      transition: transform .2s ease;
       cursor: pointer;
+      transition: transform .2s ease;
     }
+
     .preview-strip img:hover {
       transform: scale(1.05);
     }
 
-    /* Actions Alignment Framework */
-    .app-actions {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-      margin-top: auto;
+    .studio-note {
+      background: linear-gradient(180deg, var(--clr-card) 0%, rgba(15,15,16,0) 100%);
+      border-radius: var(--radius);
+      padding: 48px;
+      border: 1px solid rgba(255,255,255,.05);
+      text-align: center;
     }
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      padding: 12px 20px;
-      border-radius: 12px;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 14px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: all .2s ease;
-      cursor: pointer;
-      border: none;
-      flex: 1 1 auto; /* Allows dynamic auto-balancing layout sizing */
-      min-width: fit-content;
-    }
-    .btn:hover { filter: brightness(.95); transform: translateY(-1px); }
-    .btn-melt   { background: var(--clr-melt); color: #fff; }
-    .btn-puzl   { background: var(--clr-puzl); color: #fff; }
-    .btn-book   { background: var(--clr-book); color: #fff; }
-    .btn-amazon { background: var(--clr-book-accent); color: #1a1a1a; font-weight: 700; }
-    .btn-ghost  { background: rgba(0,0,0,.04); color: var(--clr-ink); }
-    .btn-ghost:hover { background: rgba(0,0,0,.08); }
 
-    /* ── LIGHTBOX ── */
+    .studio-note p {
+      color: var(--clr-muted);
+      font-size: 17px;
+      line-height: 1.65;
+      max-width: 760px;
+      margin: 0 auto 28px;
+    }
+
+    .footer {
+      border-top: 1px solid rgba(255,255,255,.04);
+      padding: 40px 0;
+    }
+
+    .footer small {
+      font-size: 13px;
+      color: var(--clr-muted);
+    }
+
+    .footer a {
+      color: var(--clr-muted);
+      text-decoration: none;
+    }
+
+    .footer a:hover {
+      color: var(--clr-ink);
+    }
+
     .lightbox {
       display: none;
       position: fixed;
@@ -324,7 +433,11 @@
       padding: 24px;
       cursor: pointer;
     }
-    .lightbox.open { display: flex; }
+
+    .lightbox.open {
+      display: flex;
+    }
+
     .lightbox img {
       max-width: min(90vw, 540px);
       max-height: 85vh;
@@ -332,6 +445,7 @@
       box-shadow: 0 40px 100px rgba(0,0,0,.6);
       cursor: default;
     }
+
     .lightbox-close {
       position: absolute;
       top: 24px;
@@ -344,62 +458,65 @@
       line-height: 1;
       transition: color .15s;
     }
-    .lightbox-close:hover { color: #fff; }
 
-    /* ── FOOTER ── */
-    .footer {
-      border-top: 1px solid rgba(0,0,0,.04);
-      padding: 40px 0;
+    .lightbox-close:hover {
+      color: #fff;
     }
-    .footer small {
-      font-size: 13px;
-      color: var(--clr-muted);
-    }
-    .footer a { color: var(--clr-muted); text-decoration: none; }
-    .footer a:hover { color: var(--clr-ink); }
 
-    /* ── MEDIA RESPONSIVE DECK ── */
     @media (max-width: 768px) {
       .nav-inner {
-        height: 72px;
+        height: 76px;
       }
+
       .brand img {
-        width: 40px;
-        height: 40px;
+        width: 48px;
+        height: 48px;
       }
+
       .brand span {
-        font-size: 15px;
+        font-size: 16px;
       }
+
       .nav-links {
         gap: 16px;
       }
-      .studio-hero {
-        padding: 48px 0 32px;
+
+      .nav-links a {
+        font-size: 13px;
       }
-      .studio-title {
-        font-size: 30px;
+
+      .hero {
+        padding: 64px 0 48px;
       }
-      .studio-sub {
+
+      .sub {
         font-size: 16px;
       }
+
+      .section {
+        padding: 52px 0;
+      }
+
+      .feature-grid,
       .app-grid {
         grid-template-columns: 1fr;
-        gap: 20px;
+        gap: 22px;
       }
-      .app-card {
-        padding: 24px;
-        gap: 16px;
+
+      .card {
+        padding: 26px;
       }
-      .app-name {
-        font-size: 19px;
+
+      .studio-note {
+        padding: 34px 24px;
       }
-      .app-desc {
-        font-size: 14px;
-        line-height: 1.55;
-      }
+
       .btn {
-        padding: 11px 16px;
-        font-size: 13px;
+        width: 100%;
+      }
+
+      .hero-actions {
+        flex-direction: column;
       }
     }
   </style>
@@ -412,8 +529,10 @@
         <img src="/assets/bell_studios_logo_nobg.png" alt="Bell Studios" />
         <span>Bell Studios</span>
       </a>
+
       <div class="nav-links">
-        <a href="/">Home</a>
+        <a href="#publishing">Publishing</a>
+        <a href="#apps">Apps</a>
         <a href="/about.html">About</a>
         <a href="mailto:hello@bellstudios.io">Contact</a>
       </div>
@@ -422,93 +541,48 @@
 
   <main class="container">
 
-    <section class="studio-hero">
-      <h1 class="studio-title">A one-person product studio that thinks in systems and ships in products.</em></h1>
-      <p class="studio-sub">There's a version of every product that actually fits the human using it. Bell Studios exists to find that version. We think in systems, build with intention, and ship things that earn a permanent place in people's lives.</p>
+    <section class="hero">
+      <p class="kicker">Publishing · Products · Engagement Systems</p>
+
+      <h1 class="title">Bell Studios builds useful things for <em>play, clarity, and connection.</em></h1>
+
+      <p class="sub">
+        From custom activity books and sponsor-funded fan engagement programs to focused consumer apps, Bell Studios creates products designed to earn a real place in people’s lives.
+      </p>
+
+      <div class="hero-actions">
+        <a class="btn btn-brand" href="#publishing">Explore Publishing</a>
+        <a class="btn btn-ghost" href="#apps">View Apps</a>
+      </div>
     </section>
 
-    <section class="app-grid">
+    <section class="section" id="publishing">
+      <div class="section-head">
+        <p class="section-kicker">Publishing First</p>
+        <h2 class="section-title">PUZL Books turns activity design into products, programs, and sponsor-ready experiences.</h2>
+        <p class="section-desc">
+          Bell Studios develops puzzle and activity books for families, organizations, and teams — from consumer titles on Amazon to custom B2B programs built around engagement, giveaways, and partnership revenue.
+        </p>
+      </div>
 
-      <article class="app-card app-card--melt">
-        <div>
-          <div class="app-top">
-            <div class="app-logo-wrap">
-              <img src="/assets/meltCircleLogo512.png" alt="MELT logo" />
-            </div>
-            <div>
-              <h2 class="app-name">MELT</h2>
-              <p class="app-tagline">Emotion-first AI companion</p>
-            </div>
-          </div>
-          <p class="app-desc">Translates tangled feelings into clear language and patterns. Built for overthinkers, skeptics, and anyone who wants clarity without therapy-speak.</p>
-          <div class="game-pills">
-            <span class="pill">Emotional clarity</span>
-            <span class="pill">AI companion</span>
-            <span class="pill">No jargon</span>
-          </div>
-        </div>
-        <div class="app-actions">
-          <a class="btn btn-melt" href="/melt/index.html">About MELT</a>
-          <a class="btn btn-ghost" href="/melt/privacy.html">Privacy</a>
-          <a class="btn btn-ghost" href="/melt/terms.html">Terms</a>
-        </div>
-      </article>
-
-      <article class="app-card app-card--puzl">
-        <div>
-          <div class="app-top">
-            <div class="app-logo-wrap">
-              <img src="/assets/puzlIconNoBG.png" alt="PUZL logo" />
-            </div>
-            <div>
-              <h2 class="app-name">PUZL</h2>
-              <p class="app-tagline">Family game suite · 6 in 1</p>
-            </div>
-          </div>
-          <p class="app-desc">Jigsaw puzzles, word search, sudoku, memory, flag quiz, and bingo — all offline. Turn your photos into puzzles or do daily puzzles!</p>
-          <div class="game-pills">
-            <span class="pill">Jigsaw</span>
-            <span class="pill">Word Search</span>
-            <span class="pill">Sudoku</span>
-            <span class="pill">Memory</span>
-            <span class="pill">Flag Quiz</span>
-            <span class="pill">Bingo</span>
-          </div>
-        </div>
-        <div class="app-actions">
-          <a class="btn btn-puzl" href="/puzl/index.html">About PUZL</a>
-          <a class="btn btn-ghost" href="/puzl/privacy.html">Privacy</a>
-          <a class="btn btn-ghost" href="/puzl/terms.html">Terms</a>
-        </div>
-      </article>
-
-      <article class="app-card app-card--book">
-        <div>
+      <div class="feature-grid">
+        <article class="card book-card">
           <div>
-            <div class="app-top">
-              <div class="app-logo-wrap">
-                <img src="/assets/puzlbooknobg.png" alt="PUZL Book logo" />
+            <div class="card-top">
+              <div class="logo-wrap">
+                <img src="/assets/puzlbooknobg.png" alt="PUZL Books logo" />
               </div>
               <div>
-                <h2 class="app-name">PUZL Book</h2>
-                <p class="app-tagline">The Road Trip Bible · Amazon</p>
+                <h3 class="card-name">Road Trip Bible</h3>
+                <p class="card-tagline">Consumer activity book · Available on Amazon</p>
               </div>
             </div>
-
-            <span class="book-badge">📚 Now Available (Affiliate Link Below)</span>
-
-            <p class="app-desc">300 pages of mazes, word searches, crosswords, sudoku, trivia, coloring, bingo, and secret codes. Built to survive cross-country trips. For kids ages 5–12.</p>
           </div>
-          
-          <div class="game-pills">
-            <span class="pill">300 Pages</span>
-            <span class="pill">Ages 5–12</span>
-            <span class="pill">40+ Hours</span>
-            <span class="pill">Answer Key</span>
-          </div>
-        </div>
 
-        <div class="book-visuals">
+          <p class="card-desc">
+            A 300-page family activity book packed with mazes, word searches, crosswords, sudoku, trivia, coloring, bingo, secret codes, and road trip games for kids ages 5–12.
+          </p>
+
           <div class="preview-strip" id="previewStrip">
             <img src="/assets/pages/RTB_Front_Cover.png" alt="Road Trip Bible cover" title="Front Cover" />
             <img src="/assets/pages/page2.png" alt="Word Search" title="Word Search" />
@@ -519,19 +593,142 @@
             <img src="/assets/pages/page6.png" alt="Would You Rather" title="Would You Rather" />
             <img src="/assets/pages/page7.png" alt="Horoscopes" title="Horoscopes" />
           </div>
-        </div>
 
-        <div class="app-actions">
-          <a class="btn btn-amazon"
-   href="https://www.amazon.com/dp/B0H2SHB4YM/ref=nosim?tag=bellstudios-20"
-   target="_blank"
-   rel="sponsored noopener noreferrer">
-  🛒 Buy on Amazon
-</a>
-        </div>
-      </article>
+          <div class="pills">
+            <span class="pill">300 Pages</span>
+            <span class="pill">Ages 5–12</span>
+            <span class="pill">Family Travel</span>
+            <span class="pill">Amazon</span>
+          </div>
 
+          <div class="card-actions">
+            <a class="btn btn-brand"
+               href="https://www.amazon.com/dp/B0H2SHB4YM/ref=nosim?tag=bellstudios-20"
+               target="_blank"
+               rel="sponsored noopener noreferrer">
+              View on Amazon
+            </a>
+          </div>
+        </article>
+
+        <article class="card sports-card">
+          <div>
+            <div class="card-top">
+              <div class="logo-wrap">
+                <img src="/assets/puzlbooknobg.png" alt="PUZL Books logo" />
+              </div>
+              <div>
+                <h3 class="card-name">Sports Team Programs</h3>
+                <p class="card-tagline">Custom B2B activity books · Sponsor-funded</p>
+              </div>
+            </div>
+          </div>
+
+          <p class="card-desc">
+            Custom team-branded activity books designed for kids clubs, family gamedays, theme nights, giveaways, community events, and corporate partnership teams looking for fresh sponsor inventory.
+          </p>
+
+          <div class="pills">
+            <span class="pill">Sports Teams</span>
+            <span class="pill">Sponsor Inventory</span>
+            <span class="pill">Kids Clubs</span>
+            <span class="pill">Giveaways</span>
+            <span class="pill">Theme Nights</span>
+          </div>
+
+          <div class="card-actions">
+            <a class="btn btn-brand" href="/gameday">View Gameday Programs</a>
+            <a class="btn btn-ghost" href="mailto:derek@bellstudios.io?subject=Custom%20Team%20Concept%20Request">Request Concept</a>
+          </div>
+        </article>
+      </div>
     </section>
+
+    <section class="section" id="apps">
+      <div class="section-head">
+        <p class="section-kicker">Apps & Software</p>
+        <h2 class="section-title">Focused apps built around everyday use.</h2>
+        <p class="section-desc">
+          Bell Studios also builds consumer software products with the same philosophy: simple interfaces, clear value, and tools people can actually fit into their lives.
+        </p>
+      </div>
+
+      <div class="app-grid">
+        <article class="card melt-card">
+          <div>
+            <div class="card-top">
+              <div class="logo-wrap">
+                <img src="/assets/meltCircleLogo512.png" alt="MELT logo" />
+              </div>
+              <div>
+                <h3 class="card-name">MELT</h3>
+                <p class="card-tagline">Emotion-first AI companion</p>
+              </div>
+            </div>
+          </div>
+
+          <p class="card-desc">
+            MELT translates tangled feelings into clear language and patterns. Built for overthinkers, skeptics, and anyone who wants clarity without therapy-speak.
+          </p>
+
+          <div class="pills">
+            <span class="pill">Emotional Clarity</span>
+            <span class="pill">AI Companion</span>
+            <span class="pill">No Jargon</span>
+          </div>
+
+          <div class="card-actions">
+            <a class="btn btn-brand" href="/melt/index.html">About MELT</a>
+            <a class="btn btn-ghost" href="/melt/privacy.html">Privacy</a>
+            <a class="btn btn-ghost" href="/melt/terms.html">Terms</a>
+          </div>
+        </article>
+
+        <article class="card puzl-card">
+          <div>
+            <div class="card-top">
+              <div class="logo-wrap">
+                <img src="/assets/puzlIconNoBG.png" alt="PUZL logo" />
+              </div>
+              <div>
+                <h3 class="card-name">PUZL</h3>
+                <p class="card-tagline">Family game suite · 6 in 1</p>
+              </div>
+            </div>
+          </div>
+
+          <p class="card-desc">
+            PUZL is a family-friendly game suite with jigsaw puzzles, word search, sudoku, memory, flag quiz, and bingo — built for playful thinking on or offline.
+          </p>
+
+          <div class="pills">
+            <span class="pill">Jigsaw</span>
+            <span class="pill">Word Search</span>
+            <span class="pill">Sudoku</span>
+            <span class="pill">Memory</span>
+            <span class="pill">Bingo</span>
+          </div>
+
+          <div class="card-actions">
+            <a class="btn btn-brand" href="/puzl/index.html">About PUZL</a>
+            <a class="btn btn-ghost" href="/puzl/privacy.html">Privacy</a>
+            <a class="btn btn-ghost" href="/puzl/terms.html">Terms</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="studio-note">
+        <p class="section-kicker">About Bell Studios</p>
+        <h2 class="section-title">An independent studio for products people actually use.</h2>
+        <p>
+          Bell Studios builds software, publishing products, and engagement systems with a simple goal: make useful things that feel clear, intentional, and worth coming back to.
+        </p>
+        <a class="btn btn-ghost" href="/about.html">Learn More About Bell Studios</a>
+      </div>
+    </section>
+
   </main>
 
   <div class="lightbox" id="lightbox">
@@ -554,17 +751,24 @@
     const lightboxImg = document.getElementById('lightboxImg');
     const lightboxClose = document.getElementById('lightboxClose');
 
-    strip.querySelectorAll('img').forEach(img => {
-      img.addEventListener('click', () => {
-        lightboxImg.src = img.src;
-        lightboxImg.alt = img.alt;
-        lightbox.classList.add('open');
+    if (strip && lightbox && lightboxImg && lightboxClose) {
+      strip.querySelectorAll('img').forEach(img => {
+        img.addEventListener('click', () => {
+          lightboxImg.src = img.src;
+          lightboxImg.alt = img.alt;
+          lightbox.classList.add('open');
+        });
       });
-    });
 
-    lightboxClose.addEventListener('click', () => lightbox.classList.remove('open'));
-    lightbox.addEventListener('click', e => { if (e.target === lightbox) lightbox.classList.remove('open'); });
-    document.addEventListener('keydown', e => { if (e.key === 'Escape') lightbox.classList.remove('open'); });
+      lightboxClose.addEventListener('click', () => lightbox.classList.remove('open'));
+      lightbox.addEventListener('click', e => {
+        if (e.target === lightbox) lightbox.classList.remove('open');
+      });
+      document.addEventListener('keydown', e => {
+        if (e.key === 'Escape') lightbox.classList.remove('open');
+      });
+    }
   </script>
 </body>
 </html>
+```
