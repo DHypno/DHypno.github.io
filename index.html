@@ -227,7 +227,7 @@
 
     .feature-grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 32px;
     }
 
@@ -327,6 +327,23 @@
       background:
         linear-gradient(180deg, rgba(232,184,75,.08) 0%, rgba(21,21,24,0) 72%),
         var(--clr-card);
+    }
+
+
+    .little-locals-card {
+      background:
+        linear-gradient(180deg, rgba(244,124,32,.11) 0%, rgba(21,21,24,0) 72%),
+        var(--clr-card);
+    }
+
+    .little-locals-card .card-name { color: #f47c20; }
+    .little-locals-card .pill { background: rgba(244,124,32,.11); color: #ffad66; }
+
+    .little-locals-cover {
+      border-radius: 7px;
+      object-fit: cover !important;
+      object-position: right center !important;
+      box-shadow: 0 8px 18px rgba(0,0,0,.28);
     }
 
     .sports-card {
@@ -607,6 +624,37 @@
                rel="sponsored noopener noreferrer">
               View on Amazon
             </a>
+          </div>
+        </article>
+
+
+        <article class="card little-locals-card">
+          <div>
+            <div class="card-top">
+              <div class="logo-wrap">
+                <img src="/assets/ll_celina_cover.png" alt="Little Locals Celina cover" class="little-locals-cover" />
+              </div>
+              <div>
+                <h3 class="card-name">Little Locals</h3>
+                <p class="card-tagline">City welcome books · Sponsor-funded</p>
+              </div>
+            </div>
+          </div>
+
+          <p class="card-desc">
+            Free city-themed activity books for families moving into growing communities, funded by a limited group of local sponsors and distributed through builders, realtors, apartments, and welcome partners.
+          </p>
+
+          <div class="pills">
+            <span class="pill">New Residents</span>
+            <span class="pill">Local Sponsors</span>
+            <span class="pill">Community Welcome</span>
+            <span class="pill">Celina First Edition</span>
+          </div>
+
+          <div class="card-actions">
+            <a class="btn btn-brand" href="/little-locals.html">View Little Locals</a>
+            <a class="btn btn-ghost" href="mailto:derek@bellstudios.io?subject=Little%20Locals%20Sponsorship">Sponsor Inquiry</a>
           </div>
         </article>
 
